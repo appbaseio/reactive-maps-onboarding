@@ -1,0 +1,85 @@
+/* Style the Sequence container */
+#sequence {
+  position: relative;
+  width: 100%;
+  height: 585px;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Reset */
+#sequence .seq-canvas,
+#sequence .seq-canvas > * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Make the canvas the same dimensions as the container and prevent lines from
+   wrapping so each step can sit side-by-side */
+#sequence .seq-canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+/* Make the steps the same size as the container and sit side-by-side */
+#sequence .seq-canvas > * {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  white-space: normal;
+  text-align: center;
+  color: white;
+}
+
+/* Used to vertically center align the .content element */
+#sequence .seq-canvas > li:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+/* Vertically center align the .content element */
+#sequence .content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4%;
+  font-size: 16px;
+}
+
+#sequence .step1 {
+  background-color: #279fe5;
+}
+
+#sequence .step2 {
+  background-color: #f96852;
+}
+
+#sequence .step3 {
+  background-color: #2bbf8e;
+}
+
+#sequence h2,
+#sequence h3 {
+  margin: 0;
+  display: block;
+  line-height: 120%;
+}
+
+#sequence h2 {
+  margin-bottom: .5em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.6em;
+}
+
+#sequence h3 {
+  font-size: 1.4em;
+}
