@@ -4,7 +4,8 @@ import { urlShare } from './UrlShare';
 class DataOperation {
   constructor() {
     this.user = null;
-    this.app = {
+    this.app = null;
+    this.defaultApp = {
       appName: 'test-app',
       id: 3243,
       password: "5595b682-00ff-4525-9c95-8f26a6a2a8ef",
