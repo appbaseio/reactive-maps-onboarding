@@ -48,7 +48,7 @@ export class AppCreation extends Component {
 				res.body.appName = this.state.appName;
 				dataOperation.updateApp(res.body);
 				dataOperation.createUrl(this.createUrl);
-				// this.props.nextStep();
+				this.props.nextStep();
 			} else {
 				alert('Please try again');
 			}
