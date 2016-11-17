@@ -1,5 +1,6 @@
 import { storageService } from './StorageService';
 import { urlShare } from './UrlShare';
+import { sampleCodeSnippet } from './SampleCodeSnippet';
 
 class DataOperation {
   constructor() {
@@ -9,7 +10,8 @@ class DataOperation {
       appName: 'test-app',
       id: 3243,
       password: "5595b682-00ff-4525-9c95-8f26a6a2a8ef",
-      username: "B6kyRK2Ch"
+      username: "B6kyRK2Ch",
+      type: 'test5'
     };
     $.ajaxSetup({
       crossDomain: true,
@@ -17,6 +19,7 @@ class DataOperation {
         withCredentials: true
       }
     });
+    this.sampleCodeSnippet = sampleCodeSnippet;
   }
   getUser() {
     return $.ajax({
@@ -86,6 +89,15 @@ class DataOperation {
       obj.selectedTypes = [this.app.type];
     }
     urlShare.setInputs(obj, cb);
+  }
+  appSnippet() {
+    let obj = {
+      "appname": this.app.appName,
+      "username": this.app.username,
+      "password": this.app.password,
+      "type": this.app.type
+    };
+    return this.sampleCodeSnippet.replace('{{appbaseConfig}}', JSON.stringify(obj, null, 4));
   }
 }
 

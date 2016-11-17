@@ -28,7 +28,7 @@ export class IndexData extends Component {
 		dataOperation.indexData(indexData).on('data', function(res) {
 			this.props.nextStep();
 		}.bind(this)).on('error', function(err) {
-			
+			alert('Try different name please!');
 		});
 	}
 	render() {

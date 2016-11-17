@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { AppCreation } from './AppCreation';
 import { UpdateMapping } from './UpdateMapping';
 import { IndexData } from './IndexData';
+import {LiveFiddle} from './LiveFiddle';
 
 export class ServeStep extends Component {
 	constructor(props) {
@@ -18,6 +19,9 @@ export class ServeStep extends Component {
 			break;
 			case 2:
 				return (<IndexData {...this.props}></IndexData>);
+			break;
+			case 3:
+				return (<LiveFiddle {...this.props}></LiveFiddle>);
 			break;
 		}
 	}
