@@ -15,8 +15,7 @@ var files = {
             'node_modules/codemirror/addon/fold/foldgutter.css',
             'node_modules/codemirror/addon/dialog/dialog.css',
             'node_modules/react-select2-wrapper/css/select2.css',
-            'node_modules/react-select2-wrapper/css/select2.css',
-            'bower_components/sequencejs/css/sequence-theme.intro.css'
+            'node_modules/react-select2-wrapper/css/select2.css'
         ],
         custom: ['assets/css/*.css'],
         sassFile: ['assets/styles/*.scss']
@@ -30,9 +29,7 @@ var files = {
             'bower_components/lzma/src/lzma.js',
             'bower_components/urlsafe-base64/app.js',
             'bower_components/appbase-js/browser/appbase.min.js',
-            'bower_components/sequencejs/scripts/imagesloaded.pkgd.min.js',
-            'bower_components/sequencejs/scripts/hammer.min.js',
-            'bower_components/sequencejs/scripts/sequence.min.js'
+            'bower_components/sequencejs/scripts/imagesloaded.pkgd.min.js'
         ],
         custom: [
         ]
@@ -76,6 +73,11 @@ gulp.task('moveFonts', function() {
         .pipe(gulp.dest('dist/fonts'));
 });
 
+gulp.task('moveImages', function() {
+    return gulp.src(['assets/images/*'])
+        .pipe(gulp.dest('dist/images'));
+});
+
 // Include dependency in dist
 gulp.task('move_js_depends', function() {
     return gulp.src(['bower_components/lzma/src/lzma_worker.js',
@@ -89,6 +91,7 @@ gulp.task('compact', [
     'vendorjs', 
     'moveCss', 
     'moveFonts',
+    'moveImages',
     'move_js_depends'
 ]);
 

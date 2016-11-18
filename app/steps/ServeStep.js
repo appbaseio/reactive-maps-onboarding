@@ -27,7 +27,7 @@ export class ServeStep extends Component {
 	}
 	render() {
     	return (
-	      	<div>
+	      	<div className="steps-wrapper">
 	      		{this.renderComponent()}
 	      	</div>
 	    );
