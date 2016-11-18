@@ -91,24 +91,27 @@ export class AppCreation extends Component {
 		};
 	    return (
 	      <section className="single-step">
-	      	<h3 className="step-title">App Creation</h3>
-	      	<p className="step-description">
+	      	<h2>First things first, create an app</h2>
+	      	<p>
 	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque. 
-	      		Aliquid a commodi natus, dicta dolorem quidem temporibus ut. Hic a fuga debitis odio. Quos.
+	      		Aliquid a commodi natus, dicta dolorem quidem temporibus ut.
 	      	</p>
 	      	<div className="row">
-	      		<div className="col-xs-8">
-	      			<div className="form-group">
-					    <input type="text" 
+	      		<div className="input-field">
+	      			<label>
+			      		<div className="pulse-holder">
+						    <div className="pulse-marker">
+						        <div className="pulse-rays"></div>
+						    </div>
+						</div>
+	      				<span>Enter app name</span>
+					    <input type="text"
 					    	className="form-control" 
 					    	onChange={this.appNameChange} 
-					    	value={this.state.appName}  
-					    	placeholder="App name"
+					    	value={this.state.appName}
 					    	{...readOnly} />
-					</div>
-	      		</div>
-	      		<div className="col-xs-4">
-	      			{this.submitBtn()}
+	      			</label>
+	      			{this.submitBtn()}	
 	      		</div>
 	      		{this.relatedLinks()}
 	      	</div>

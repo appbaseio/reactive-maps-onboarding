@@ -14,7 +14,6 @@
     "lzma": "^2.3.0",
     "urlsafe-base64": "https://github.com/farhan687/urlsafe-base64.git",
     "auth0.js": "^7.3.0",
-    "sequencejs": "^2.1.0",
     "appbase-js": "^0.10.8"
   }
 }

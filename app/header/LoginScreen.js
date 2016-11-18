@@ -4,18 +4,20 @@ import { LoginModal } from '../others/LoginModal';
 import { config } from '../config';
 
 export class LoginScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    var loginModal = (<LoginModal></LoginModal>);
-    return (
-      <div className="text-center">
-        <h2>Login Required</h2>
-        {loginModal}
-      </div> 
-    );
-  }
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        var loginModal = (<LoginModal></LoginModal>);
+        return (
+            <div className="right">
+                <div className="steps-wrapper">
+                    <h2>Get started with Reactive Maps</h2>
+                    {loginModal}
+                </div>
+            </div> 
+        );
+    }
 }
 
 LoginScreen.propTypes = {  

@@ -1,6 +1,7 @@
 import { default as React, Component } from 'react';
 import { render } from 'react-dom';
 import { ServeStep } from './ServeStep';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export class Steps extends Component {
 	constructor(props) {
@@ -16,17 +17,31 @@ export class Steps extends Component {
 		});
 	}
 	stepRender() {
-		let steps = [];
-		for(let i = 0; i <= this.state.currentStep; i++) {
-			let single_step = (<ServeStep key={i} step={i} nextStep={this.nextStep}></ServeStep>);
-			steps.push(single_step);
-		}
-		return steps;
+		// let steps = [];
+		// for(let i = 0; i <= this.state.currentStep; i++) {
+		// 	let single_step = (<ServeStep key={i} step={i} nextStep={this.nextStep}></ServeStep>);
+		// 	steps.push(single_step);
+		// }
+		// return steps;
+		return (
+			<ServeStep
+				key={this.state.currentStep}
+				step={this.state.currentStep}
+				nextStep={this.nextStep}>
+			</ServeStep>
+		);
 	}
 	render() {
 		return (
-			<div>
-				{this.stepRender()}
+			<div className="right">
+				<ReactCSSTransitionGroup
+					transitionName="fadeSlideIn"
+					transitionAppear={true}
+					transitionAppearTimeout={500}
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={300}>
+					{this.stepRender()}
+				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}

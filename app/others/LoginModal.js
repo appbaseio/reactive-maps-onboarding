@@ -18,7 +18,7 @@ export class LoginModal extends Component {
     this.setState({ showModal: true });
   }
   showIcon() {
-    let icon = 'Login';
+    let icon = 'Login to continue';
     if(this.state.profile) {
       icon = 'Logout';
     }

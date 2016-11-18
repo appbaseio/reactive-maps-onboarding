@@ -34,17 +34,15 @@ export class IndexData extends Component {
 	render() {
     return (
       <section className="single-step">
-      	<h3 className="step-title">Index Data</h3>
-      	<p className="step-description">
+      	<h2>Index Data</h2>
+      	<p>
       		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque. 
       		Aliquid a commodi natus, dicta dolorem quidem temporibus ut. Hic a fuga debitis odio. Quos.
       	</p>
       	<div className="row">
-      		<div className="col-xs-12">
+      		<div className="input-field">
       			<JsonView content={JSON.stringify(indexData, null, 4)} />
-      		</div>
-      		<div className="col-xs-12">
-      			<button className="btn btn-primary" onClick={() => this.submit()}>
+      			<button className="btn btn-primary pos-static" onClick={() => this.submit()}>
       				Submit
       			</button>
       		</div>
