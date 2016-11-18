@@ -47,7 +47,6 @@ class Main extends Component {
                     </div>
                 </section>
                 <div className="app-container">
-                    <div className="left"></div>
                     {this.container()}
                 </div>
             </div>

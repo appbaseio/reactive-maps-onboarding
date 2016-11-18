@@ -73,6 +73,11 @@ gulp.task('moveFonts', function() {
         .pipe(gulp.dest('dist/fonts'));
 });
 
+gulp.task('moveImages', function() {
+    return gulp.src(['assets/images/*'])
+        .pipe(gulp.dest('dist/images'));
+});
+
 // Include dependency in dist
 gulp.task('move_js_depends', function() {
     return gulp.src(['bower_components/lzma/src/lzma_worker.js',
@@ -86,6 +91,7 @@ gulp.task('compact', [
     'vendorjs', 
     'moveCss', 
     'moveFonts',
+    'moveImages',
     'move_js_depends'
 ]);
 

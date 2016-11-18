@@ -11,6 +11,7 @@
         position: fixed;
         top: 0;
         left: 0;
+        padding-top: 25px;
         background-color: #5053AA;
     }
 
@@ -144,6 +145,49 @@
         left: 400px;
 
         iframe { border: 0; }
+    }
+}
+
+.step-widget {
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    padding: 40px;
+    color: #bbb;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+
+    h3 {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #b9bcff;
+        margin-bottom: 14px;
+    }
+
+    .icon {
+        width: 24px;
+        display: inline-block;
+
+        * { display: none; }
+    }
+
+    li.active {
+        font-weight: bold;
+        color: #fff;
+
+        .fa-circle {
+            display: inline-block;
+        }
+    }
+
+    li.finished {
+        color: #5cff6b;
+
+        .fa-check-circle {
+            display: inline-block;
+        }
     }
 }
 
