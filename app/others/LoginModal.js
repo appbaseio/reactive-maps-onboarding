@@ -25,7 +25,8 @@ export class LoginModal extends Component {
     return icon;
   }
   loginLink(method) {
-    var baseURL = window.location.protocol + "//" + window.location.host + '/index.html';
+    var baseURL = window.location.href;
+    console.log(baseURL, window.location);
     return `https://accapi.appbase.io/login/${method}?next=${baseURL}`;
   }
   render() {
