@@ -11,7 +11,7 @@ export class LiveFiddle extends Component {
 			<section className="fiddle-screen">
 				<iframe
 					width="100%" height="100%"
-					src="//jsfiddle.net/farhan687/t7dku4tu/5/embedded/result,js"
+					src="//jsfiddle.net/farhan687/t7dku4tu/embedded/result,js"
 					allowFullScreen="allowfullscreen">
 				</iframe>
 			</section>

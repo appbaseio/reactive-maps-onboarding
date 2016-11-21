@@ -70,12 +70,12 @@ export class UpdateMapping extends Component {
 	      	<div className="row">
 	      		<div className="input-field">
 	      			<label>
-	      				<span>Enter field name to apply mapping</span>
+	      				<span>Enter type name to apply mapping</span>
 					    <input type="text" 
 					    	className="form-control" 
 					    	onChange={this.handleChange} 
 					    	value={this.state.typeName}  
-					    	placeholder="App name"
+					    	placeholder="Type name"
 					    	{...readOnly} />
 					</label>
 		      		<div className="mapping-wrapper">
