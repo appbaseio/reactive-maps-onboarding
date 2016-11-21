@@ -1,112 +1,146 @@
 @import "variables.scss";
 .modal .modal-content {
-  background: #fff;
-  border-radius: 4px;
-  border: 3px solid;
-  border-color: $primary-color;
+    background: #fff;
+    border-radius: 3px;
+    border: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 .modal .modal-header {
-  border: 0;
-  padding: 5px 15px 0 15px;
-  color: $primary-color;
+    border: 0;
+    padding: 5px 15px 0 15px;
+    color: $primary-color;
 }
 .modal .modal-title {
-	text-align: center;
+    text-align: center;
+    padding: 40px 0 0;
+    font-weight: bold;
+    color: #888;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
 }
 .modal .modal-header .close {
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  border: 1px solid;
-  font-size: 14px;
-  line-height: 0px;
-  padding: 3px 0;
-  text-align: center;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  margin-top: 0;
-  background: transparent;
-  opacity: 1;
-  color: $primary-color;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 1px solid;
+    font-size: 14px;
+    line-height: 0px;
+    padding: 3px 0;
+    text-align: center;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    margin-top: 0;
+    background: transparent;
+    opacity: 1;
+    color: $primary-color;
 }
 .modal .modal-body {
-	padding-bottom: 50px;
+    padding-bottom: 50px;
+}
+.modal .btn {
+    width: 200px;
+    height: 50px;
+    background-color: $secondary-color;
+    color: #fff;
+    display: block;
+    margin: 10px auto;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    border-radius: 3px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+
+    i {
+        font-weight: bold;
+        font-size: 16px;
+        position: relative;
+        top: 1px;
+        margin-right: 12px;
+    }
+
+    &:hover, &:focus {
+        background-color: $primary-color;
+    }
 }
 .modal .btn-success {
-  background: transparent;
-  color: $primary-color;
-  border-color: $primary-color;
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
 }
 .modal .btn-success:hover {
-  background: $primary-color;
-  color: #fff;
+    background: $primary-color;
+    color: #fff;
 }
 .modal .btn-info {
-  background: transparent;
-  color: $primary-color;
-  border-color: $primary-color;
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
 }
 .modal .btn-info:hover {
-  background: $primary-color;
-  color: #fff;
+    background: $primary-color;
+    color: #fff;
 }
 .modal.modal-yellow .modal-content {
-  border-color: $yellow;
+    border-color: $yellow;
 }
 .modal.modal-yellow .modal-header,
 .modal.modal-yellow .modal-header .close {
-  color: $yellow;
+    color: $yellow;
 }
 .modal.modal-info .modal-content {
-  border-color: $primary-color;
+    border-color: $primary-color;
 }
 .modal.modal-warning .modal-content {
-  border-color: #F5E79E;
+    border-color: #F5E79E;
 }
 .modal.modal-warning .modal-header {
-  color: #F5E79E;
+    color: #F5E79E;
 }
 .modal.modal-warning .close {
-  color: #F5E79E;
+    color: #F5E79E;
 }
 .modal .btn-warning {
-  background: transparent;
-  color: #F5E79E;
-  border-color: #F5E79E;
+    background: transparent;
+    color: #F5E79E;
+    border-color: #F5E79E;
 }
 .modal .btn-warning:hover {
-  background: #F5E79E;
-  color: #fff;
+    background: #F5E79E;
+    color: #fff;
 }
 .modal .btn-danger {
-  background: transparent;
-  color: #FF8484;
-  border-color: #FF8484;
+    background: transparent;
+    color: #FF8484;
+    border-color: #FF8484;
 }
 .modal .btn-danger:hover {
-  background: #FF8484;
-  color: #fff;
+    background: #FF8484;
+    color: #fff;
 }
 .modal.modal-danger .modal-content {
-  border-color: #FF8484;
+    border-color: #FF8484;
 }
 .modal.modal-danger .modal-header {
-  color: #FF8484;
+    color: #FF8484;
 }
 .modal.modal-danger .close {
-  color: #FF8484;
+    color: #FF8484;
 }
 #resultModal {
-  .modal-dialog {
-    width: 90%;
-    position: relative;
-    .modal-body {
-      height: 70%;
-      position: relative;
-      .CodeMirror {
-        height: 100%;
-      }
+    .modal-dialog {
+        width: 90%;
+        position: relative;
+        .modal-body {
+            height: 70%;
+            position: relative;
+            .CodeMirror {
+                height: 100%;
+            }
+        }
     }
-  }
 }

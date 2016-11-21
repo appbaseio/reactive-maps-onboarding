@@ -38,33 +38,39 @@ export class Steps extends Component {
 						<li className={(this.state.currentStep == 0 ? 'active' : this.state.currentStep > 0 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
-								<i className="fa fa-circle"></i>
+								<span className="circle">1</span>
 							</span>
 							Create your app
 						</li>
 						<li className={(this.state.currentStep == 1 ? 'active' : this.state.currentStep > 1 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
-								<i className="fa fa-circle"></i>
+								<span className="circle">2</span>
 							</span>
 							Update Mappings
 						</li>
 						<li className={(this.state.currentStep == 2 ? 'active' : this.state.currentStep > 2 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
-								<i className="fa fa-circle"></i>
+								<span className="circle">3</span>
 							</span>
 							Index your data
 						</li>
 						<li className={(this.state.currentStep == 3 ? 'active' : this.state.currentStep > 3 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
-								<i className="fa fa-circle"></i>
+								<span className="circle">4</span>
 							</span>
 							Final interactive app
 						</li>
 					</ul>
+
+                    <a href="#" className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
 				</div>
+                <div className="onboarding-navbar">
+                    <h1>Reactive Maps</h1>
+                    <a href="#" className="pull-right">Skip</a>
+                </div>
 				<div className="right">
 					<ReactCSSTransitionGroup
 						transitionName="fadeSlideIn"
@@ -80,7 +86,7 @@ export class Steps extends Component {
 	}
 }
 
-Steps.propTypes = {  
+Steps.propTypes = {
 };
 // Default props value
 Steps.defaultProps = {

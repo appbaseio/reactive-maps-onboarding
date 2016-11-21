@@ -20,38 +20,38 @@ require('codemirror/mode/javascript/javascript.js');
 require('codemirror/keymap/sublime.js');
 
 export class JsonView extends Component {
-  constructor(props) {
-    super(props);
-  	this.state = {
-  		code: '',
-      error: {
-        title: null,
-        message: null
-      },
-      validFlag: false,
-      importType: "data",
-      mappingObj: {
-        type: 'data',
-        input: {}
-      }
-  	};
-    this.codemirrorOptions = {
-      lineNumbers: false,
-      mode: "javascript",
-      autoCloseBrackets: true,
-      matchBrackets: true,
-      showCursorWhenSelecting: true,
-      tabSize: 2,
-      extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
-      foldGutter: true,
-      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
-    };
-  }
-  render() {
-    return (
-    	<Codemirror ref="editor" value={this.props.content} onChange={this.updateCode}
-        placeholder='Add json here' options={this.codemirrorOptions} >
-    	</Codemirror>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            code: '',
+            error: {
+                title: null,
+                message: null
+            },
+            validFlag: false,
+            importType: "data",
+            mappingObj: {
+                type: 'data',
+                input: {}
+            }
+        };
+        this.codemirrorOptions = {
+            lineNumbers: false,
+            mode: "javascript",
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            showCursorWhenSelecting: true,
+            tabSize: 2,
+            extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+            foldGutter: true,
+            gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+        };
+    }
+    render() {
+        return (
+            <Codemirror ref="editor" value={this.props.content} onChange={this.updateCode}
+                placeholder='Add json here' options={this.codemirrorOptions} >
+            </Codemirror>
+        );
+    }
 }
