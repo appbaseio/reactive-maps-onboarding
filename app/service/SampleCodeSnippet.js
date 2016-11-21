@@ -4,7 +4,7 @@ const Testing = React.createClass({
         return {
             mapStyle: "MapBox",
             mapping: {
-                city: 'city.raw',
+                city: 'city',
                 location: 'location'
             },
             config: {
@@ -12,14 +12,12 @@ const Testing = React.createClass({
             }
         };
     },
-  cityQuery: function(value) {
-        if(value) {
-            let field = 'city';
-            let match = {
-                [field]:JSON.stringify(value)
-            };
-            return { match: match };
-        } else return null;
+    popoverContent: function(marker) {
+        return (
+        <div className="popoverComponent row">
+           {marker._source.place_info}
+        </div>
+        );
     },
     render: function () {
         return (
@@ -57,8 +55,10 @@ const Testing = React.createClass({
                         searchAsMoveComponent={true}
                         MapStylesComponent={true}
                         title="Meetupblast"
+                        showPopoverOn = "onClick"
+                        popoverContent = {this.popoverContent}
                         depends={{
-                            CitySensor: {"operation": "must", defaultQuery: this.cityQuery}
+                            CitySensor: {"operation": "must"}
                         }}
                         />
                 </div>

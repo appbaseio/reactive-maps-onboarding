@@ -117,7 +117,7 @@
             }
         }
 
-        button {
+        button.submit-btn {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -165,6 +165,26 @@
         left: 400px;
 
         iframe { border: 0; }
+    }
+    #index-data {
+        table {
+            text-align: left;
+            input {
+                border-bottom: 1px dotted #ddd;
+                text-align: left;
+            }
+            .jsonPopoverBtn {
+                background: transparent;
+                border: 2px solid $primary-color;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+                &:before {
+                    content: "{...}";
+                }
+            }
+        }
     }
 }
 

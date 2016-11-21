@@ -65,7 +65,7 @@ export class AppCreation extends Component {
 		let btn;
 		if(!this.state.readOnly) {
 			btn = (
-				<button className="btn btn-primary" onClick={() => this.submit()}>
+				<button className="btn btn-primary submit-btn" onClick={() => this.submit()}>
       				Submit
       			</button>
 			);

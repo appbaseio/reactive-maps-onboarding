@@ -18,12 +18,7 @@ export class UpdateMapping extends Component {
 		        },
 		        "city": {
 		            "type": "string",
-		            "fields": {
-		                "raw": {
-		                    "type": "string",
-		                    "index": "not_analyzed"
-		                }
-		            }
+		            "index": "not_analyzed"
 		        }
 		    }
 		};
@@ -54,7 +49,7 @@ export class UpdateMapping extends Component {
 		let btn;
 		if(!this.state.readOnly) {
 			btn = (
-				<button className="btn btn-primary pos-static" onClick={() => this.submit()}>
+				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.submit()}>
       				Submit
       			</button>
 			);
