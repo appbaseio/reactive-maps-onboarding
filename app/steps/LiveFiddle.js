@@ -1,14 +1,10 @@
 import { default as React, Component } from 'react';
 import { render } from 'react-dom';
-import { dataOperation } from '../service/DataOperation';
 import { JsonView } from '../others/JsonView';
 
 export class LiveFiddle extends Component {
 	constructor(props) {
 		super(props);
-	}
-	submit() {
-		
 	}
 	render() {
 		return (
@@ -23,7 +19,7 @@ export class LiveFiddle extends Component {
 	}
 }
 
-LiveFiddle.propTypes = {  
+LiveFiddle.propTypes = {
 };
 // Default props value
 LiveFiddle.defaultProps = {

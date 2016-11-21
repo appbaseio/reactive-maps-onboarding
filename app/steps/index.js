@@ -1,7 +1,9 @@
 import { default as React, Component } from 'react';
 import { render } from 'react-dom';
 import { ServeStep } from './ServeStep';
+import { dataOperation } from '../service/DataOperation';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Clipboard from 'Clipboard';
 
 export class Steps extends Component {
 	constructor(props) {
@@ -17,7 +19,16 @@ export class Steps extends Component {
 		});
 	}
 	stepRender() {
-		return (
+		if (this.state.currentStep == 3) {
+            let snippet = dataOperation.appSnippet();
+
+            new Clipboard('.copy-btn', {
+                text: function(trigger) {
+                    return snippet;
+                }
+            });
+        }
+        return (
 			<ServeStep
 				key={this.state.currentStep}
 				step={this.state.currentStep}
@@ -25,6 +36,11 @@ export class Steps extends Component {
 			</ServeStep>
 		);
 	}
+    copyBtnRender(){
+        return (
+            <a className="copy-btn subscribe">Copy Generated Code</a>
+        )
+    }
 	render() {
 		return (
 			<div>
@@ -64,7 +80,7 @@ export class Steps extends Component {
 							Final interactive app
 						</li>
 					</ul>
-
+                    {this.state.currentStep == 3 ? this.copyBtnRender() : null}
                     <a href="#" className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
 				</div>
                 <div className="onboarding-navbar">
