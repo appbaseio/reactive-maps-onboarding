@@ -1,11 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
- 
+
 module.exports = {
   entry: './app/app.js',
-  output: { 
+  output: {
     path: path.join(__dirname, 'dist/js'),
-    publicPath: '/dist/js', // instead of publicPath: '/build/' 
+    publicPath: '/dist/js', // instead of publicPath: '/build/'
     filename: 'app.js'
   },
   inline: true,
@@ -21,6 +21,10 @@ module.exports = {
         query: {
           presets: ['es2015','stage-0', 'react']
         }
+      },
+      {
+        test: /node_modules\/JSONStream\/index\.js$/,
+        loaders: ['shebang', 'babel']
       }
     ]
   },
