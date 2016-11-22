@@ -21,7 +21,6 @@ export class Steps extends Component {
 	stepRender() {
 		if (this.state.currentStep == 3) {
             let snippet = dataOperation.appSnippet();
-
             new Clipboard('.copy-btn', {
                 text: function(trigger) {
                     return snippet;

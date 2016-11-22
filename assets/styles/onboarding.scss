@@ -157,14 +157,10 @@
         text-align: left;
     }
 
-    .fiddle-screen {
-        position: fixed;
-        width: calc(100% - 400px);
-        height: 100%;
-        top: 0;
-        left: 400px;
-
-        iframe { border: 0; }
+    #codepen-step {
+        .submit-btn {
+            position: relative;
+        }
     }
     #index-data {
         table {

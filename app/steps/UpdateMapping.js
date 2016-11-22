@@ -19,6 +19,9 @@ export class UpdateMapping extends Component {
 		        "city": {
 		            "type": "string",
 		            "index": "not_analyzed"
+		        },
+		        "place_info": {
+		            "type": "string"
 		        }
 		    }
 		};
