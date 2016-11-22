@@ -57,7 +57,7 @@ export class IndexData extends Component {
 					<td>
 						<div className="form-group place-info-inputbox">
 							<i className="fa fa-pencil input-prefix"></i>
-							<input type="text" className="form-control" ref={'info'+i} defaultValue="" placeholder="Type place info" />
+							<input type="text" className="form-control" ref={'info'+i} defaultValue={"loc"+(i+1)} placeholder="Type place info" />
 						</div>
 					</td>
 					<td>
