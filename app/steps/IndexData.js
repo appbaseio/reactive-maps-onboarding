@@ -55,7 +55,10 @@ export class IndexData extends Component {
 						{this.setJsonPopover(record)}
 					</td>
 					<td>
-						<input type="text" className="form-control" ref={'info'+i} defaultValue="Type info" />
+						<div className="form-group place-info-inputbox">
+							<i className="fa fa-pencil input-prefix"></i>
+							<input type="text" className="form-control" ref={'info'+i} defaultValue="" placeholder="Type place info" />
+						</div>
 					</td>
 					<td>
 						{JSON.stringify(record.location, null, 2)}

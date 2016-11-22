@@ -166,8 +166,22 @@
         table {
             text-align: left;
             input {
-                border-bottom: 1px dotted #ddd;
                 text-align: left;
+            }
+            .place-info-inputbox {
+                padding-left: 18px;
+                position: relative;
+                border-bottom: 1px dotted #ddd;
+                input {
+                    width: 100%;
+                    position: relative;
+                    padding: 0 4px;
+                }
+                .input-prefix {
+                    position: absolute;
+                    left: 5px;
+                    top: 12px;
+                }
             }
             .jsonPopoverBtn {
                 background: transparent;
