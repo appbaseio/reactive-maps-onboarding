@@ -100,6 +100,16 @@
                 -webkit-transition: all .3s ease;
             }
 
+            &[readonly] {
+                background-color: #fafafa;
+                cursor: not-allowed;
+
+                input {
+                    cursor: not-allowed;
+                    background-color: #fafafa;
+                }
+            }
+
             &:hover, &:focus {
                 span {
                     color: #888;
@@ -142,8 +152,8 @@
 
             &:hover, &:focus {
                 outline: none;
-                color: #fff;
-                background-color: #FF5A5F;
+                color: #666;
+                background-color: #CDDC39;
             }
 
             &.pos-static {
@@ -221,8 +231,12 @@
     padding: 60px 40px;
     color: #b9bcff;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 46px;
     text-align: left;
+
+    li {
+        cursor: pointer;
+    }
 
     h3 {
         font-weight: bold;
@@ -281,6 +295,42 @@
     }
 }
 
+.error-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    background-color: #fcf8e3;
+    border: 1px solid #faebcc;
+    color: #8a6d3b;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.onboarding-progress {
+    display: none;
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    margin: 0;
+    background-color: #fff;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 2;
+
+    .status {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #CDDC39;
+        -webkit-transition: width .3s ease;
+        transition: width .3s ease;
+    }
+}
+
 .onboarding-navbar {
     display: none;
 }
@@ -292,6 +342,8 @@
 
     .pulse-holder { display: none; }
 
+    .onboarding-progress { display: block; }
+
     .onboarding-navbar {
         display: block;
         width: 100%;
@@ -301,7 +353,6 @@
         background-color: $secondary-color;
         padding: 17px 20px;
         text-align: left;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
         h1 {
             font-size: 22px;
@@ -333,7 +384,7 @@
         .right {
             width: 100%;
             left: 0;
-            padding-top: 40px;
+            padding-top: 65px;
         }
     }
 
@@ -341,7 +392,7 @@
         padding: 8% 25px;
 
         h2 {
-            font-size: 28px;
+            font-size: 26px;
         }
 
         .fiddle-screen {
