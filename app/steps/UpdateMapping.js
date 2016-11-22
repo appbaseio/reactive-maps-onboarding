@@ -8,8 +8,10 @@ export class UpdateMapping extends Component {
 		super(props);
 		this.state = {
 			typeName: 'test',
-			readOnly: false
-		};
+			readOnly: false,
+            error: false
+        };
+        this.errorMsg = '';
 		this.handleChange = this.handleChange.bind(this);
 		this.mappingObj = {
 		    "properties": {
@@ -37,7 +39,10 @@ export class UpdateMapping extends Component {
 		if(this.state.typeName.trim() != '') {
 			this.updateMapping();
 		} else {
-			alert('Typename should not be empty.');
+			this.errorMsg = 'Typename should not be empty.';
+            this.setState({
+                error: true
+            });
 		}
 	}
 	updateMapping() {
@@ -47,7 +52,7 @@ export class UpdateMapping extends Component {
 			});
 			this.props.nextStep();
 		}).fail((res) => {
-			
+
 		});
 	}
 	submitBtn() {
@@ -69,17 +74,20 @@ export class UpdateMapping extends Component {
 	      <section className="single-step">
 	      	<h2>Update Mapping</h2>
 	      	<p>
-	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque. 
+	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque.
 	      		Aliquid a commodi natus, dicta dolorem quidem temporibus ut. Hic a fuga debitis odio. Quos.
 	      	</p>
+
+            {this.state.error ? this.showError(): null}
+
 	      	<div className="row">
 	      		<div className="input-field">
 	      			<label>
 	      				<span>Enter field name to apply mapping</span>
-					    <input type="text" 
-					    	className="form-control" 
-					    	onChange={this.handleChange} 
-					    	value={this.state.typeName}  
+					    <input type="text"
+					    	className="form-control"
+					    	onChange={this.handleChange}
+					    	value={this.state.typeName}
 					    	placeholder="App name"
 					    	{...readOnly} />
 					</label>
@@ -94,7 +102,7 @@ export class UpdateMapping extends Component {
   	}
 }
 
-UpdateMapping.propTypes = {  
+UpdateMapping.propTypes = {
 };
 // Default props value
 UpdateMapping.defaultProps = {

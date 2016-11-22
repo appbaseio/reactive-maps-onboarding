@@ -9,13 +9,22 @@ export class Steps extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	    	currentStep: 0
+	    	currentStep: 0,
+            completedStep: -1
 	    };
 	    this.nextStep = this.nextStep.bind(this);
 	}
+    setStep(step) {
+        if (this.state.completedStep + 1 >= step) {
+            this.setState({
+                currentStep: step
+            });
+        }
+    }
 	nextStep() {
 		this.setState({
-			currentStep: this.state.currentStep+1
+			currentStep: this.state.currentStep+1,
+            completedStep: this.state.completedStep+1
 		});
 	}
 	stepRender() {
@@ -32,7 +41,9 @@ export class Steps extends Component {
 			<ServeStep
 				key={this.state.currentStep}
 				step={this.state.currentStep}
-				nextStep={this.nextStep}>
+				nextStep={this.nextStep}
+                setStep={this.setStep.bind(this)}
+                completedStep={this.state.completedStep}>
 			</ServeStep>
 		);
 	}
@@ -51,28 +62,28 @@ export class Steps extends Component {
 							Getting Started
 							<span className="pull-right">{this.state.currentStep + 1} of 4</span>
 						</h3>
-						<li className={(this.state.currentStep == 0 ? 'active' : this.state.currentStep > 0 ? 'finished' : null)}>
+						<li onClick={this.setStep.bind(this, 0)} className={(this.state.currentStep == 0 ? 'active' : this.state.completedStep >= 0 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">1</span>
 							</span>
 							Create your app
 						</li>
-						<li className={(this.state.currentStep == 1 ? 'active' : this.state.currentStep > 1 ? 'finished' : null)}>
+						<li onClick={this.setStep.bind(this, 1)} className={(this.state.currentStep == 1 ? 'active' : this.state.completedStep >= 1 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">2</span>
 							</span>
 							Update Mappings
 						</li>
-						<li className={(this.state.currentStep == 2 ? 'active' : this.state.currentStep > 2 ? 'finished' : null)}>
+						<li onClick={this.setStep.bind(this, 2)} className={(this.state.currentStep == 2 ? 'active' : this.state.completedStep >= 2 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">3</span>
 							</span>
 							Index your data
 						</li>
-						<li className={(this.state.currentStep == 3 ? 'active' : this.state.currentStep > 3 ? 'finished' : null)}>
+						<li onClick={this.setStep.bind(this, 3)} className={(this.state.currentStep == 3 ? 'active' : this.state.completedStep >= 3 ? 'finished' : null)}>
 							<span className="icon">
 								<i className="fa fa-check-circle"></i>
 								<span className="circle">4</span>
@@ -86,6 +97,9 @@ export class Steps extends Component {
                 <div className="onboarding-navbar">
                     <h1>Reactive Maps</h1>
                     <a href="#" className="pull-right">Skip</a>
+                </div>
+                <div className="onboarding-progress">
+                    <div className="status" style={{width: ((this.state.currentStep+1) * 25) + '%'}}></div>
                 </div>
 				<div className="right">
 					<ReactCSSTransitionGroup

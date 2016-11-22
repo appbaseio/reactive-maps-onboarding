@@ -34,7 +34,7 @@ export class ServeStep extends Component {
     }
 }
 
-ServeStep.propTypes = {  
+ServeStep.propTypes = {
 };
 // Default props value
 ServeStep.defaultProps = {

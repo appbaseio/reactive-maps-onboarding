@@ -8,10 +8,13 @@ export class AppCreation extends Component {
 		this.state = {
 			appName: '',
 			readOnly: false,
-			url: null
+			url: null,
+            error: false
 		};
+        this.errorMsg = '';
 		this.appNameChange = this.appNameChange.bind(this);
-		this.createUrl = this.createUrl.bind(this);
+        this.createUrl = this.createUrl.bind(this);
+		this.showError = this.showError.bind(this);
 	}
 	componentDidMount() {
 		if(dataOperation.app && dataOperation.app.appName) {
@@ -20,7 +23,6 @@ export class AppCreation extends Component {
 				readOnly: true
 			});
 			dataOperation.createUrl(this.createUrl);
-			this.props.nextStep();
 		}
 	}
 	appNameChange(event) {
@@ -33,10 +35,16 @@ export class AppCreation extends Component {
 			if(dataOperation.user && dataOperation.user.apps && !dataOperation.user.apps.hasOwnProperty(this.state.appName)) {
 				this.createApp();
 			} else {
-				alert(this.state.appName+' is already exists!');
+				this.errorMsg = this.state.appName + ' already exists!';
+                this.setState({
+                    error: true
+                });
 			}
 		} else {
-			alert('App name should not be empty.');
+            this.errorMsg = 'App name should not be empty.';
+            this.setState({
+                error: true
+            });
 		}
 	}
 	createApp() {
@@ -50,10 +58,13 @@ export class AppCreation extends Component {
 				dataOperation.createUrl(this.createUrl);
 				this.props.nextStep();
 			} else {
-				alert('Please try again');
+				this.errorMsg = 'Some error occured. Please try again!';
+                this.setState({
+                    error: true
+                });
 			}
 		}).fail((res) => {
-			
+
 		});
 	}
 	createUrl(url) {
@@ -61,29 +72,29 @@ export class AppCreation extends Component {
 			url: url
 		});
 	}
+    showError() {
+        return (
+            <div className="error-box">
+                {this.errorMsg}
+            </div>
+        )
+    }
 	submitBtn() {
 		let btn;
-		if(!this.state.readOnly) {
+		if(this.state.readOnly) {
+            btn = (
+                <button className="btn btn-primary" onClick={() => this.props.setStep(1)}>
+                    Next
+                </button>
+            );
+        } else {
 			btn = (
 				<button className="btn btn-primary" onClick={() => this.submit()}>
       				Submit
       			</button>
 			);
-		}
+        }
 		return btn;
-	}
-	relatedLinks() {
-		let links;
-		if(this.state.url) {
-			links = (
-				<div className="row">
-					<a href={"https://appbaseio.github.io/gem/#?input_state="+this.state.url} target="_blank" className="col-xs-12">Gem</a>
-					<a href={"https://appbaseio.github.io/dejavu/live/#?input_state="+this.state.url} target="_blank" className="col-xs-12">Dejavu</a>
-					<a href={"https://appbaseio.github.io/mirage/#?input_state="+this.state.url} target="_blank" className="col-xs-12">Mirage</a>
-				</div>
-			);
-		}
-		return links;
 	}
 	render() {
 		let readOnly = {
@@ -93,12 +104,15 @@ export class AppCreation extends Component {
 	      <section className="single-step">
 	      	<h2>First things first, create an app</h2>
 	      	<p>
-	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque. 
+	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque.
 	      		Aliquid a commodi natus, dicta dolorem quidem temporibus ut.
 	      	</p>
+
+            {this.state.error ? this.showError(): null}
+
 	      	<div className="row">
 	      		<div className="input-field">
-	      			<label>
+	      			<label {...readOnly}>
 			      		<div className="pulse-holder">
 						    <div className="pulse-marker">
 						        <div className="pulse-rays"></div>
@@ -106,21 +120,19 @@ export class AppCreation extends Component {
 						</div>
 	      				<span>Enter app name</span>
 					    <input type="text"
-					    	className="form-control" 
-					    	onChange={this.appNameChange} 
-					    	value={this.state.appName}
-					    	{...readOnly} />
+					    	className="form-control"
+					    	onChange={this.appNameChange}
+					    	value={this.state.appName} />
 	      			</label>
-	      			{this.submitBtn()}	
+	      			{this.submitBtn()}
 	      		</div>
-	      		{this.relatedLinks()}
 	      	</div>
 	      </section>
 	    );
   	}
 }
 
-AppCreation.propTypes = {  
+AppCreation.propTypes = {
 };
 // Default props value
 AppCreation.defaultProps = {
