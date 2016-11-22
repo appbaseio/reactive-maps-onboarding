@@ -13,15 +13,15 @@ export class UpdateMapping extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.mappingObj = {
 		    "properties": {
+		        "place_info": {
+		            "type": "string"
+		        },
 		        "location": {
 		            "type": "geo_point"
 		        },
 		        "city": {
 		            "type": "string",
 		            "index": "not_analyzed"
-		        },
-		        "place_info": {
-		            "type": "string"
 		        }
 		    }
 		};
