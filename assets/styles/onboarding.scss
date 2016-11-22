@@ -87,6 +87,9 @@
             padding: 2.5em 4.5em 6.5em 4.5em;
             font-weight: normal;
             outline: none;
+            color: #999;
+            position: static;
+            font-size: 14px;
 
             span {
                 text-transform: uppercase;
@@ -111,9 +114,11 @@
             text-align: center;
             font-size: 18px;
             box-shadow: none;
+            margin-bottom: 0;
 
             &:focus {
                 box-shadow: none;
+                border: 0;
             }
         }
 
@@ -131,6 +136,7 @@
             font-size: 14px;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            box-shadow: none;
             transition: all .3s ease;
             -webkit-transition: all .3s ease;
 
