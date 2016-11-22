@@ -7,11 +7,10 @@ class DataOperation {
     this.user = null;
     this.app = null;
     this.defaultApp = {
-      appName: 'test-app',
-      id: 3243,
-      password: "5595b682-00ff-4525-9c95-8f26a6a2a8ef",
-      username: "B6kyRK2Ch",
-      type: 'test5'
+      "appName": "ReactTestApp3",
+      "username": "CR1KCtfUY",
+      "password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
+      "type": "test"
     };
     $.ajaxSetup({
       crossDomain: true,
@@ -90,13 +89,31 @@ class DataOperation {
     }
     urlShare.setInputs(obj, cb);
   }
-  appSnippet() {
-    let obj = {
+  appConfig() {
+    return {
       "appname": this.app.appName,
       "username": this.app.username,
       "password": this.app.password,
       "type": this.app.type
     };
+  }
+  htmlSnippet() {
+    return `<div id="root"></div>`;
+  }
+  resources() {
+    let resources = [
+      'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js',
+      'https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places',
+      'https://rawgit.com/appbaseio/reactive-maps/umd/umd/ReactiveMaps.js',
+      'https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/js/vendor.min.js',
+      'https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/vendor.min.css',
+      'https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/style.min.css'
+    ];
+    return resources.join(',');
+  }
+  appSnippet() {
+    let obj = this.appConfig();
     return this.sampleCodeSnippet.replace('{{appbaseConfig}}', JSON.stringify(obj, null, 4));
   }
 }

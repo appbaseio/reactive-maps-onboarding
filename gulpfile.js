@@ -15,7 +15,9 @@ var files = {
             'node_modules/codemirror/addon/fold/foldgutter.css',
             'node_modules/codemirror/addon/dialog/dialog.css',
             'node_modules/react-select2-wrapper/css/select2.css',
-            'node_modules/react-select2-wrapper/css/select2.css'
+            'node_modules/react-select2-wrapper/css/select2.css',
+            'node_modules/reactive-maps/dist/css/vendor.min.css',
+            'node_modules/reactive-maps/dist/css/style.min.css'
         ],
         custom: ['assets/css/*.css'],
         sassFile: ['assets/styles/*.scss']
@@ -29,7 +31,8 @@ var files = {
             'bower_components/lzma/src/lzma.js',
             'bower_components/urlsafe-base64/app.js',
             'bower_components/appbase-js/browser/appbase.min.js',
-            'bower_components/sequencejs/scripts/imagesloaded.pkgd.min.js'
+            'bower_components/sequencejs/scripts/imagesloaded.pkgd.min.js',
+            'node_modules/reactive-maps/dist/js/vendor.min.js'
         ],
         custom: [
         ]

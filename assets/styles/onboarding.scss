@@ -158,8 +158,18 @@
     }
 
     #codepen-step {
-        .submit-btn {
-            position: relative;
+        margin: -8% -25px 0 -25px;
+        .extra-btns {
+            position: absolute;
+            right: 0;
+            top: 0;
+            form {
+                float: left;
+                display: inline-block;
+            }
+            .submit-btn {
+                position: relative;
+            }
         }
     }
     #index-data {
