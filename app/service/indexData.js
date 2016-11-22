@@ -49,13 +49,13 @@ export const indexData = [{
 }, {
     "city": "Ahmedabad",
     "location": {
-        "lon": 72.58,
-        "lat": 23.03
+        "lon": 72.603033,
+        "lat": 23.003312
     }
 }, {
     "city": "Ahmedabad",
     "location": {
-        "lon": 73.004189,
-        "lat": 20.273239
+        "lat": 23.025365,
+        "lon": 72.507857
     }
 }];
