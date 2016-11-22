@@ -1,4 +1,8 @@
 @import "variables.scss";
+.modal {
+    background-color: transparent;
+    box-shadow: none;
+}
 .modal .modal-content {
     background: #fff;
     border-radius: 3px;
@@ -48,7 +52,7 @@
     display: block;
     margin: 10px auto;
     font-weight: bold;
-    padding: 12px;
+    padding: 7px;
     font-size: 15px;
     letter-spacing: 0.01em;
     border-radius: 3px;

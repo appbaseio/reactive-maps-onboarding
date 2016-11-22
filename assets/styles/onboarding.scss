@@ -174,20 +174,92 @@
     }
 
     #codepen-step {
-        margin: -8% -25px 0 -25px;
+        width: calc(100% - 400px);
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 400px;
+        margin: 0;
+
+        .nav-tabs {
+            border: 0;
+            padding: 12px;
+
+            li {
+                a {
+                    cursor: pointer;
+                    font-family: 'Source Sans Pro';
+                    font-weight: 700;
+                    background-color: $secondary-color;
+                    margin-right: 12px;
+                    border: 0;
+                    border-radius: 4px;
+                    color: #fff;
+                    padding: 9px 24px;
+                    letter-spacing: 0.04em;
+                    border-bottom: 2px solid #fafafa;
+                    -webkit-transition: all .3s ease;
+                    transition: all .3s ease;
+
+                    &:hover {
+                        background-color: #fcfcfc;
+                        color: #888;
+                    }
+                }
+
+                &.active a {
+                    color: #666;
+                    background-color: #fff;
+                    border-color: #eee;
+                }
+            }
+        }
+
+        .tab-pane {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 63px);
+            background-color: #eee;
+
+            .col {
+                padding: 0;
+            }
+
+            .listComponent.reactiveComponent {
+                margin: 12px;
+            }
+        }
+
+        .ReactCodeMirror {
+            max-width: 100%;
+            height: 100%;
+
+            .CodeMirror {
+                height: 100%;
+            }
+        }
+
         .extra-btns {
             position: absolute;
             right: 0;
             top: 0;
+
             form {
                 float: left;
                 display: inline-block;
             }
             .submit-btn {
                 position: relative;
+                margin: 12px;
+                color: $primary-color;
+                background-color: #fafafa;
+                border-color: #fafafa;
+                outline: none;
+                font-weight: 700;
             }
         }
     }
+
     #index-data {
         table {
             text-align: left;
