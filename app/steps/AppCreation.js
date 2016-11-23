@@ -23,7 +23,6 @@ export class AppCreation extends Component {
 				readOnly: true
 			});
 			dataOperation.createUrl(this.createUrl);
-			this.props.nextStep();
 		}
 	}
 	appNameChange(event) {

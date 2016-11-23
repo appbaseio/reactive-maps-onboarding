@@ -5,13 +5,13 @@ import { sampleCodeSnippet } from './SampleCodeSnippet';
 class DataOperation {
   constructor() {
     this.user = null;
-    // this.app = null;
-    this.app = {
-      "appName": "ReactTestApp3",
-      "username": "CR1KCtfUY",
-      "password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
-      "type": "test"
-    };
+    this.app = null;
+    // this.app = {
+    //   "appName": "ReactTestApp3",
+    //   "username": "CR1KCtfUY",
+    //   "password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
+    //   "type": "test"
+    // };
     $.ajaxSetup({
       crossDomain: true,
       xhrFields: {
