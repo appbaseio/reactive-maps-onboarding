@@ -28,6 +28,11 @@ export class Steps extends Component {
             completedStep: this.state.completedStep+1
 		});
 	}
+	skipTutorial() {
+		this.setState({
+			currentStep: 3
+		});
+	}
 	stepRender() {
 		if (this.state.currentStep == 3) {
             let snippet = dataOperation.appSnippet();
@@ -92,7 +97,7 @@ export class Steps extends Component {
 						</li>
 					</ul>
                     {this.state.currentStep == 3 ? this.copyBtnRender() : null}
-                    <a href="#" className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
+                    <a href="#" onClick={() => this.skipTutorial()} className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
                     <LogoutScreen />
 				</div>
                 <div className="onboarding-navbar">

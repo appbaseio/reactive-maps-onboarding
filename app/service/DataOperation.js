@@ -6,12 +6,12 @@ class DataOperation {
   constructor() {
     this.user = null;
     this.app = null;
-    // this.app = {
-    //   "appName": "ReactTestApp3",
-    //   "username": "CR1KCtfUY",
-    //   "password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
-    //   "type": "test"
-    // };
+    this.defaultApp = {
+      "appName": "ReactTestApp3",
+      "username": "CR1KCtfUY",
+      "password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
+      "type": "test"
+    };
     $.ajaxSetup({
       crossDomain: true,
       xhrFields: {
@@ -27,6 +27,14 @@ class DataOperation {
       dataType: 'json',
       contentType: "application/json"
     });
+  }
+  logout() {
+    return $.ajax({
+      type: "GET",
+      url: 'https://accapi.appbase.io/logout?next=',
+      dataType: 'json',
+      contentType: "application/json"
+    }); 
   }
   createApp(appname) {
     return $.ajax({
@@ -90,11 +98,12 @@ class DataOperation {
     urlShare.setInputs(obj, cb);
   }
   appConfig() {
+    let app = this.app ? this.app : this.defaultApp;
     return {
-      "appname": this.app.appName,
-      "username": this.app.username,
-      "password": this.app.password,
-      "type": this.app.type
+      "appname": app.appName,
+      "username": app.username,
+      "password": app.password,
+      "type": app.type
     };
   }
   htmlSnippet() {
