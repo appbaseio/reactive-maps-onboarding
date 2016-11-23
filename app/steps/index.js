@@ -2,6 +2,7 @@ import { default as React, Component } from 'react';
 import { render } from 'react-dom';
 import { ServeStep } from './ServeStep';
 import { dataOperation } from '../service/DataOperation';
+import { LogoutScreen } from '../header/LogoutScreen';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Clipboard from 'Clipboard';
 
@@ -92,6 +93,7 @@ export class Steps extends Component {
 					</ul>
                     {this.state.currentStep == 3 ? this.copyBtnRender() : null}
                     <a href="#" className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
+                    <LogoutScreen />
 				</div>
                 <div className="onboarding-navbar">
                     <h1>Reactive Maps</h1>

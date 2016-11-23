@@ -15,12 +15,12 @@
         background-color: $secondary-color;
 
         .skip-link {
-            width: 100%;
+            width: auto;
             height: 70px;
             position: absolute;
             bottom: 0;
             padding: 20px;
-            left: 0;
+            right: 0;
             text-transform: uppercase;
             letter-spacing: 0.01em;
             background-color: $secondary-color;
@@ -38,6 +38,14 @@
 
             &:hover, &:focus {
                 color: #fff;
+            }
+
+            &.logout-link {
+                font-size: 12px;
+                left: 0;
+                right: auto;
+                line-height: 30px;
+                height: auto;
             }
         }
     }
