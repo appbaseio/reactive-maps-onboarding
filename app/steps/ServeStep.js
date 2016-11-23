@@ -14,13 +14,13 @@ export class ServeStep extends Component {
 			case 0:
 				return (<AppCreation {...this.props}></AppCreation>);
 			break;
-			case 1:
+			case 3:
 				return (<UpdateMapping {...this.props}></UpdateMapping>);
 			break;
 			case 2:
 				return (<IndexData {...this.props}></IndexData>);
 			break;
-			case 3:
+			case 1:
 				return (<LiveFiddle {...this.props}></LiveFiddle>);
 			break;
 		}

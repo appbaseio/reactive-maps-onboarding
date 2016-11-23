@@ -26,7 +26,7 @@
     "react-select2-wrapper": "^1.0.3",
     "react-toastr": "^2.8.1",
     "react-tooltip": "^3.2.1",
-    "reactive-maps": "0.0.5"
+    "reactive-maps": "0.0.9"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

@@ -71,7 +71,8 @@ gulp.task('moveCss', function() {
 
 gulp.task('moveFonts', function() {
     return gulp.src(['bower_components/bootstrap/dist/fonts/*', 
-        'bower_components/font-awesome/fonts/*'
+        'bower_components/font-awesome/fonts/*',
+        'node_modules/reactive-maps/dist/fonts/**/*'
         ])
         .pipe(gulp.dest('dist/fonts'));
 });

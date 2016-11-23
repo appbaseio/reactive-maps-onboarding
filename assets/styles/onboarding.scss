@@ -214,20 +214,17 @@
                 }
             }
         }
-
+        .liveExample {
+            text-align: left;
+            .appbaseListCol {
+                padding-right: 0;
+            }
+        }
         .tab-pane {
             position: absolute;
             width: 100%;
             height: calc(100% - 63px);
             background-color: #eee;
-
-            .col {
-                padding: 0;
-            }
-
-            .listComponent.reactiveComponent {
-                margin: 12px;
-            }
         }
 
         .ReactCodeMirror {

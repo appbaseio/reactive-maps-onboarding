@@ -27,25 +27,21 @@ export class LiveExample extends Component {
 	}
 	render() {
 		return (
-			<div className="row m-0 h-100">
+			<div className="row m-0 h-100 liveExample">
                 <ReactiveMap config={this.props.config} />
-                <div className="col s4">
-                    <div className="row h-100">
-                        <div className="col s12">
-                            <AppbaseList
-                                sensorId="CitySensor"
-                                inputData={this.props.mapping.city}
-                                defaultSelected="San Francisco"
-                                showCount={true}
-                                size={100}
-                                multipleSelect={false}
-                                includeGeo={false}
-                                staticSearch={true}
-                                title="Cities"
-                                searchPlaceholder="Search City"
-                            />
-                        </div>
-                    </div>
+                <div className="col s4 appbaseListCol">
+                    <AppbaseList
+                        sensorId="CitySensor"
+                        inputData={this.props.mapping.city}
+                        defaultSelected="San Francisco"
+                        showCount={true}
+                        size={100}
+                        multipleSelect={false}
+                        includeGeo={false}
+                        staticSearch={true}
+                        title="Cities"
+                        searchPlaceholder="Search City"
+                    />
                 </div>
                 <div className="col s8 h-100" style={{height: '1000px'}}>
                     <AppbaseMap
