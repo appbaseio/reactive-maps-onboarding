@@ -36,7 +36,7 @@ export class JsonView extends Component {
             }
         };
         this.codemirrorOptions = {
-            lineNumbers: false,
+            lineNumbers: true,
             mode: "javascript",
             autoCloseBrackets: true,
             matchBrackets: true,
