@@ -28,7 +28,7 @@ export class IndexData extends Component {
     }
     IndexData() {
         dataOperation.indexData(indexData).on('data', function(res) {
-            this.props.nextStep();
+           this.props.nextStep();
         }.bind(this)).on('error', function(err) {
             alert('Try different name please!');
         });
@@ -41,7 +41,7 @@ export class IndexData extends Component {
           </Popover>
         );
         const jsonOverlay = (
-          <OverlayTrigger trigger={['click']} rootClose placement="left" overlay={jsonPopover}>
+          <OverlayTrigger trigger={['click']} rootClose placement="right" overlay={jsonPopover}>
             <button className="jsonPopoverBtn"></button>
           </OverlayTrigger>
         );
