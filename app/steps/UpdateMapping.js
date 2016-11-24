@@ -49,7 +49,7 @@ export class UpdateMapping extends Component {
 	}
 	applyUrl(url) {
 		this.setState({
-			gemUrl: 'https://opensource.appbase.io/gem/#?input_state='+url+'&hf=false&subscribe=false'
+			gemUrl: 'https://opensource.appbase.io/gem/#?input_state='+url+'&h=false&subscribe=false'
 		});
 	}
 	handleChange(event) {
