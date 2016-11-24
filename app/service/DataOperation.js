@@ -50,6 +50,19 @@ class DataOperation {
   updateApp(app) {
     this.app = app;
   }
+  readMapping(type) {
+    let credentials = this.app.username + ':' + this.app.password;
+    this.app.type = type;
+    return $.ajax({
+      type: "GET",
+      url: 'https://scalr.api.appbase.io/' + this.app.appName + '/_mapping/',
+      dataType: 'json',
+      contentType: "application/json",
+      headers: {
+        'Authorization': 'Basic ' + btoa(credentials)
+      }
+    });
+  }
   updateMapping(type, mappingObj) {
     let credentials = this.app.username + ':' + this.app.password;
     this.app.type = type;
@@ -106,8 +119,36 @@ class DataOperation {
       "type": app.type
     };
   }
-  htmlSnippet() {
-    return `<div id="root"></div>`;
+  htmlSnippet(method) {
+    let min_html = `<div id="root"></div>`;
+    let max_html = `<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <title>Reactive maps sample</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/vendor.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/style.min.css" />
+  <!-- JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places"></script>
+  <script type="text/javascript" src="https://rawgit.com/appbaseio/reactive-maps/umd/umd/ReactiveMaps.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/js/vendor.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+
+</html>`;
+
+    if(method === 'full') {
+      return max_html;
+    } 
+    return min_html;
   }
   resources() {
     let resources = [

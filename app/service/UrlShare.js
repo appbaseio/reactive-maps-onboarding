@@ -62,6 +62,19 @@ class UrlShare {
 			return cb('Empty');
 		}
 	}
+	compressInputState(obj) {	
+		return new Promise((resolve, reject) => {
+			var inputs = JSON.parse(JSON.stringify(obj));
+			this.compress(inputs, compressCb.bind(this));
+			function compressCb(error, ciphertext) {
+				if(error) {
+					reject(error);
+				} else {
+					resolve(ciphertext);
+				}
+			}
+		});	
+	}
 	redirectUrl(method) {
 		return new Promise((resolve, reject) => {
 			switch(method) {

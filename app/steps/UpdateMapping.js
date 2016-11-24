@@ -1,6 +1,7 @@
 import { default as React, Component } from 'react';
 import { render } from 'react-dom';
 import { dataOperation } from '../service/DataOperation';
+import { urlShare } from '../service/UrlShare';
 import { JsonView } from '../others/JsonView';
 
 export class UpdateMapping extends Component {
@@ -9,10 +10,12 @@ export class UpdateMapping extends Component {
 		this.state = {
 			typeName: 'test',
 			readOnly: false,
-            error: false
+            error: false,
+            gemUrl: null
         };
         this.errorMsg = '';
 		this.handleChange = this.handleChange.bind(this);
+		this.applyUrl =  this.applyUrl.bind(this);
 		this.mappingObj = {
 		    "properties": {
 		        "place_info": {
@@ -28,17 +31,90 @@ export class UpdateMapping extends Component {
 		    }
 		};
 	}
+	componentWillMount() {
+		let obj = {
+	      url: 'https://'+dataOperation.app.username+':'+dataOperation.app.password+'@scalr.api.appbase.io',
+	      appname: dataOperation.app.appName,
+	      version: '2.4.0',
+	      selectedType: [this.state.type],
+	      selectedTypes: [this.state.type],
+	      mappingObj: {
+	      	type: 'mapping',
+          	input: this.mappingObj
+	      }
+	    };
+		urlShare.compressInputState(obj).then((url) => {
+	      this.applyUrl(url);
+	    }).catch((error) => console.log(error));
+	}
+	applyUrl(url) {
+		this.setState({
+			gemUrl: 'https://opensource.appbase.io/gem/#?input_state='+url+'&hf=false&subscribe=false'
+		});
+	}
 	handleChange(event) {
 		this.setState({
 			typeName: event.target.value
 		});
 	}
 	submit() {
-		if(this.state.typeName.trim() != '') {
-			this.updateMapping();
+		this.readMapping();
+	}
+	readMapping() {
+		dataOperation.readMapping(this.state.typeName).done((res) => {
+			this.validateMapping(res);
+		}).fail((res) => {
+
+		});
+	}
+	validateMapping(res) {
+		let flag = true;
+		let errorMsg = null;
+		let mapProps = {
+			city: null,
+			location: null,
+			place_info: null
+		};
+		if(res[dataOperation.app.appName].mappings.hasOwnProperty(this.state.typeName)) {
+			for(let mapProp in res[dataOperation.app.appName].mappings[this.state.typeName].properties) {
+				mapProps[mapProp] = res[dataOperation.app.appName].mappings[this.state.typeName].properties[mapProp];
+				switch(mapProp) {
+					case 'city':
+					case 'place_info':
+						if(mapProps[mapProp].type !== 'string') {
+							flag = false;
+							errorMsg = mapProp+' is set as '+mapProps[mapProp].type +' instead of string';
+						}
+					break;
+					case 'location':
+						if(mapProps[mapProp].type !== 'geo_point') {
+							flag = false;
+							errorMsg = mapProp+' is set as '+mapProps[mapProp].type +' instead of geo_point';
+						}
+					break;
+				}
+			}
+			if(flag) {
+				for(let mapProp in mapProps) {
+					if(!mapProps[mapProp]) {
+						flag = false;
+						errorMsg = mapProp+' is missing in mapping!';
+					}
+				}	
+			}
 		} else {
-			this.errorMsg = 'Typename should not be empty.';
-            this.setState({
+			flag = false;
+			errorMsg = 'Test type is missing, Type test in choose or create a type box and then apply mapping!';
+		}
+		if(flag) {
+			this.setState({
+				readOnly: true,
+				error: false
+			});
+			this.props.nextStep();
+		} else {
+			this.errorMsg = errorMsg;
+			this.setState({
                 error: true
             });
 		}
@@ -53,47 +129,51 @@ export class UpdateMapping extends Component {
 
 		});
 	}
-	submitBtn() {
-		let btn;
-		if(!this.state.readOnly) {
-			btn = (
-				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.submit()}>
-      				Submit
-      			</button>
-			);
+	renderComponent(type) {
+		let element;
+		switch(type) {
+			case 'iframe':
+				if(this.state.gemUrl) {
+					element = (<iframe src={this.state.gemUrl} height="500px" width="100%" frameBorder="0"></iframe>);
+				}
+			break;
+			case 'next':
+				if(this.state.gemUrl) {
+					if(!this.state.readOnly) {
+						element = (
+							<button className="subscribe" onClick={() => this.submit()}>
+			      				Next
+			      			</button>
+						);
+					}
+				}
+			break;
 		}
-		return btn;
+		return element;
 	}
+	showError() {
+        return (
+            <div className="error-box">
+                {this.errorMsg}
+            </div>
+        )
+    }
 	render() {
 		let readOnly = {
 			readOnly: this.state.readOnly
 		};
 	    return (
-	      <section className="single-step">
+	      <section className="single-step" id="upate-mapping">
 	      	<h2>Update Mapping</h2>
 	      	<p>
-	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque.
-	      		Aliquid a commodi natus, dicta dolorem quidem temporibus ut. Hic a fuga debitis odio. Quos.
+	      		Type a new typename <strong>test</strong> and press apply mapping button and then press next button.
 	      	</p>
 
             {this.state.error ? this.showError(): null}
 
-	      	<div className="row">
-	      		<div className="input-field">
-	      			<label {...readOnly}>
-	      				<span>Enter type name to apply mapping</span>
-					    <input type="text"
-					    	className="form-control"
-					    	onChange={this.handleChange}
-					    	value={this.state.typeName}
-					    	placeholder="Type name" />
-					</label>
-		      		<div className="mapping-wrapper">
-		      			<JsonView content={JSON.stringify(this.mappingObj, null, 4)} />
-		      		</div>
-  					{this.submitBtn()}
-	      		</div>
-	      	</div>
+	      	{this.renderComponent('iframe')}
+
+	      	{this.renderComponent('next')}
 	      </section>
 	    );
   	}
