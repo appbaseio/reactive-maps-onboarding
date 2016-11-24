@@ -29,7 +29,7 @@ export class LiveExample extends Component {
 		return (
 			<div className="row m-0 h-100 liveExample">
                 <ReactiveMap config={this.props.config} />
-                <div className="col s4 appbaseListCol">
+                <div className="col s12 m4 appbaseListCol">
                     <AppbaseList
                         sensorId="CitySensor"
                         inputData={this.props.mapping.city}
@@ -43,7 +43,7 @@ export class LiveExample extends Component {
                         searchPlaceholder="Search City"
                     />
                 </div>
-                <div className="col s8 h-100" style={{height: '1000px'}}>
+                <div className="col s12 m8 h-100" style={{height: '1000px'}}>
                     <AppbaseMap
                         inputData={this.props.mapping.location}
                         defaultZoom={13}

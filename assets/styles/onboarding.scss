@@ -264,6 +264,12 @@
             }
         }
     }
+    
+    #upate-mapping {
+        .submit-btn {
+
+        }
+    }
 
     #index-data {
         table {
@@ -472,11 +478,14 @@
             font-size: 26px;
         }
 
-        .fiddle-screen {
+        #codepen-step {
             width: 100%;
             height: calc(100%- 60px);
             top: 60px;
             left: 0;
+            .ReactCodeMirror {
+                height: calc(100% - 60px);
+            }
         }
     }
 }

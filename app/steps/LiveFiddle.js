@@ -38,16 +38,30 @@ export class LiveFiddle extends Component {
 	handleSelect(key) {
 	    this.setState({key}, function() {
 	    	setTimeout(() => {
-	    		this.setState({showJs: true});
+	    		if(this.state.key === 2) {
+	    			this.setState({showJs: true});
+	    		}
+	    		if(this.state.key === 3) {
+	    			this.setState({showHtml: true});
+	    		}
 	    	}, 400);
 	    });
 	}
-	renderJs() {
-		let jsview;
-		if(this.state.showJs) {
-			jsview = (<JsonView content = {dataOperation.appSnippet()}></JsonView>);
+	renderComponent(method) {
+		let element;
+		switch(method) {
+			case 'js':
+				if(this.state.showJs) {
+					element = (<JsonView content = {dataOperation.appSnippet()}></JsonView>);
+				}
+			break;
+			case 'html':
+				if(this.state.showHtml) {
+					element = (<JsonView content = {dataOperation.htmlSnippet('full')} />);
+				}
+			break;
 		}
-		return jsview;
+		return element;
 	}
 	render() {
 		return (
@@ -57,10 +71,10 @@ export class LiveFiddle extends Component {
 			        	<LiveExample config={{appbase: dataOperation.appConfig()}} />
 			        </Tab>
 			        <Tab eventKey={2} title="JS">
-			        	{this.renderJs()}
+			        	{this.renderComponent('js')}
 			        </Tab>
 			        <Tab eventKey={3} title="Html">
-			        	<JsonView content = {dataOperation.htmlSnippet()} />
+			        	{this.renderComponent('html')}
 			        </Tab>
 			    </Tabs>
 			    <div className="extra-btns">
