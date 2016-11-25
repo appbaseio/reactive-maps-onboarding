@@ -30,7 +30,7 @@ export class AppCreation extends Component {
 		let inputVal = event.target.value;
 		var patt = /^[a-zA-Z0-9_+-@$\.]+$/;
 		if (!patt.test(inputVal)) {
-			this.errorMsg = 'Use a-z,A-Z,0-9 and -,.,_,+,@$ chars only for the app name.'
+			this.errorMsg = 'Only use a-z,A-Z,0-9 and any of -._+$@ chars for the app name.'
 		}
 		this.setState({
 			appName: inputVal,
