@@ -29,7 +29,7 @@ const Testing = React.createClass({
                             <AppbaseList
                                 sensorId="CitySensor"
                                 inputData={this.props.mapping.city}
-                                defaultSelected="San Francisco"
+                                defaultSelected="sanfrancisco"
                                 showCount={true}
                                 size={100}
                                 multipleSelect={false}

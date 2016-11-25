@@ -17,8 +17,8 @@ export class LiveFiddle extends Component {
 	}
 	codepenConfig() {
 		let config = {
-			title: "Reactive maps Example",
-			description: "Reactive maps Example",
+			title: "Reactive Maps Example",
+			description: "Reactive Maps Interactive Map",
 			html: '<div id="root"></app>',
 			html_pre_processor: "none",
 			css: '',
@@ -73,7 +73,7 @@ export class LiveFiddle extends Component {
 			        <Tab eventKey={2} title="JS">
 			        	{this.renderComponent('js')}
 			        </Tab>
-			        <Tab eventKey={3} title="Html">
+			        <Tab eventKey={3} title="HTML">
 			        	{this.renderComponent('html')}
 			        </Tab>
 			    </Tabs>
@@ -85,7 +85,7 @@ export class LiveFiddle extends Component {
 						<input type="hidden" name="panel_js" value={3} />
 						<input type="hidden" name="wrap" value='l' />
 						<button type="submit" className="subscribe"> <i className="fa fa-external-link"></i> jsfiddle</button>
-					</form>	
+					</form>
 			    </div>
 		    </section>
 		);

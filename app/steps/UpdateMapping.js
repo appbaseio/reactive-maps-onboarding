@@ -10,42 +10,33 @@ export class UpdateMapping extends Component {
 		this.state = {
 			typeName: 'test',
 			readOnly: false,
-            error: false,
-            gemUrl: null
-        };
-        this.errorMsg = '';
+			error: false,
+			gemUrl: null
+		};
+		this.errorMsg = '';
 		this.handleChange = this.handleChange.bind(this);
 		this.applyUrl =  this.applyUrl.bind(this);
-		this.mappingObj = {
-		    "properties": {
-		        "place_info": {
-		            "type": "string"
-		        },
-		        "location": {
-		            "type": "geo_point"
-		        },
-		        "city": {
-		            "type": "string",
-		            "index": "not_analyzed"
-		        }
-		    }
+		this.dataObj = {
+			"place_info": "blue bottle coffee shop",
+			"location": [37.767, -122.447],
+			"city": "SanFrancisco"
 		};
 	}
 	componentWillMount() {
 		let obj = {
-	      url: 'https://'+dataOperation.app.username+':'+dataOperation.app.password+'@scalr.api.appbase.io',
-	      appname: dataOperation.app.appName,
-	      version: '2.4.0',
-	      selectedType: [this.state.type],
-	      selectedTypes: [this.state.type],
-	      mappingObj: {
-	      	type: 'mapping',
-          	input: this.mappingObj
-	      }
-	    };
+			url: 'https://'+dataOperation.app.username+':'+dataOperation.app.password+'@scalr.api.appbase.io',
+			appname: dataOperation.app.appName,
+			version: '2.4.0',
+			selectedType: [this.state.typeName],
+			selectedTypes: [this.state.typeName],
+			mappingObj: {
+				type: 'data',
+				input: this.dataObj
+			}
+		};
 		urlShare.compressInputState(obj).then((url) => {
-	      this.applyUrl(url);
-	    }).catch((error) => console.log(error));
+			this.applyUrl(url);
+		}).catch((error) => console.log(error));
 	}
 	applyUrl(url) {
 		this.setState({
@@ -64,7 +55,6 @@ export class UpdateMapping extends Component {
 		dataOperation.readMapping(this.state.typeName).done((res) => {
 			this.validateMapping(res);
 		}).fail((res) => {
-
 		});
 	}
 	validateMapping(res) {
@@ -100,7 +90,7 @@ export class UpdateMapping extends Component {
 						flag = false;
 						errorMsg = mapProp+' is missing in mapping!';
 					}
-				}	
+				}
 			}
 		} else {
 			flag = false;
@@ -115,8 +105,8 @@ export class UpdateMapping extends Component {
 		} else {
 			this.errorMsg = errorMsg;
 			this.setState({
-                error: true
-            });
+				error: true
+			});
 		}
 	}
 	updateMapping() {
@@ -126,7 +116,6 @@ export class UpdateMapping extends Component {
 			});
 			this.props.nextStep();
 		}).fail((res) => {
-
 		});
 	}
 	renderComponent(type) {
@@ -142,8 +131,8 @@ export class UpdateMapping extends Component {
 					if(!this.state.readOnly) {
 						element = (
 							<button className="subscribe" onClick={() => this.submit()}>
-			      				Next
-			      			</button>
+								Next
+							</button>
 						);
 					}
 				}
@@ -152,31 +141,33 @@ export class UpdateMapping extends Component {
 		return element;
 	}
 	showError() {
-        return (
-            <div className="error-box">
-                {this.errorMsg}
-            </div>
-        )
-    }
+		return (
+			<div className="error-box">
+				{this.errorMsg}
+			</div>
+		)
+	}
 	render() {
 		let readOnly = {
 			readOnly: this.state.readOnly
 		};
-	    return (
-	      <section className="single-step" id="upate-mapping">
-	      	<h2>Update Mapping</h2>
-	      	<p>
-	      		Type a new typename <strong>test</strong> and press apply mapping button and then press next button.
-	      	</p>
+		return (
+			<section className="single-step" id="upate-mapping">
+				<h2>Define Data Model</h2>
+				<p>
+					We will now define the data model (aka schema). In the data model editor's left pane below, we show sample JSON data that we intend to index in the next step. In the right pane, the editor shows the inferred data types. You can edit these to be more specific, but for this demo - we're all set.
+				</p>
+				<p>
+					Select <strong>Apply Mapping</strong> to apply the data model for the type <strong>test</strong> and then press <strong>Next</strong>.
+				</p>
+				{this.state.error ? this.showError(): null}
 
-            {this.state.error ? this.showError(): null}
+	      {this.renderComponent('iframe')}
 
-	      	{this.renderComponent('iframe')}
-
-	      	{this.renderComponent('next')}
-	      </section>
-	    );
-  	}
+	      {this.renderComponent('next')}
+	    </section>
+	  );
+  }
 }
 
 UpdateMapping.propTypes = {

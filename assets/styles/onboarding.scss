@@ -13,7 +13,7 @@
         left: 0;
         padding-top: 45px;
         background-color: $secondary-color;
-        
+
         .reactive-logo {
             padding: 0 40px;
             text-align: left;
@@ -78,14 +78,17 @@
     }
 
     p {
-        max-width: 500px;
-        color: #eee;
-        font-size: 15px;
+        color: #fff;
+        font-size: 16px;
         font-weight: 100;
         letter-spacing: 0.01em;
         font-family: "Helvetica";
         margin: 20px auto;
     }
+
+		strong {
+			font-weight: 900;
+		}
 
     .input-field {
         position: relative;
@@ -264,7 +267,7 @@
             }
         }
     }
-    
+
     #upate-mapping {
         .submit-btn {
 

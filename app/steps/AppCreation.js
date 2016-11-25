@@ -114,12 +114,11 @@ export class AppCreation extends Component {
 		let readOnly = {
 			readOnly: this.state.readOnly
 		};
-		return (
-			<section className="single-step">
-	      	<h2>First things first, create an app</h2>
+	    return (
+	      <section className="single-step">
+	      	<h2>Create an app</h2>
 	      	<p>
-	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque.
-	      		Aliquid a commodi natus, dicta dolorem quidem temporibus ut.
+	      		First things first, we will start by creating an appbase.io app. This is where all the data will reside once our maps app is up and running.
 	      	</p>
 
             {this.state.error ? this.showError(): null}

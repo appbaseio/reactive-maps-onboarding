@@ -33,7 +33,7 @@ export class LiveExample extends Component {
                     <AppbaseList
                         sensorId="CitySensor"
                         inputData={this.props.mapping.city}
-                        defaultSelected="San Francisco"
+                        defaultSelected="sanfrancisco"
                         showCount={true}
                         size={100}
                         multipleSelect={false}

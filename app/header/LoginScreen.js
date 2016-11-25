@@ -16,16 +16,16 @@ export class LoginScreen extends Component {
                 </div>
                 <div className="right">
                     <div className="steps-wrapper">
-                        <h2>Get started with Reactive Maps</h2>
+                        <h2>Get started with an interactive tutorial for Reactive Maps</h2>
                         {loginModal}
                     </div>
-                </div> 
+                </div>
             </div>
         );
     }
 }
 
-LoginScreen.propTypes = {  
+LoginScreen.propTypes = {
 };
 // Default props value
 LoginScreen.defaultProps = {
