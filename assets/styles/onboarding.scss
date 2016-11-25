@@ -13,14 +13,19 @@
         left: 0;
         padding-top: 45px;
         background-color: $secondary-color;
+        
+        .reactive-logo {
+            padding: 0 40px;
+            text-align: left;
+        }
 
         .skip-link {
             width: auto;
             height: 70px;
             position: absolute;
             bottom: 0;
-            padding: 20px;
-            right: 0;
+            padding: 20px 40px;
+            left: 0;
             text-transform: uppercase;
             letter-spacing: 0.01em;
             background-color: $secondary-color;
@@ -40,13 +45,6 @@
                 color: #fff;
             }
 
-            &.logout-link {
-                font-size: 12px;
-                left: 0;
-                right: auto;
-                line-height: 30px;
-                height: auto;
-            }
         }
     }
 
@@ -59,6 +57,13 @@
         overflow-y: scroll;
         padding: 0;
         background-color: $primary-color;
+        .logout-link {
+            font-size: 12px;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #fff;
+        }
     }
 }
 
@@ -253,14 +258,9 @@
                 float: left;
                 display: inline-block;
             }
-            .submit-btn {
-                position: relative;
-                margin: 12px;
-                color: $primary-color;
-                background-color: #fafafa;
-                border-color: #fafafa;
-                outline: none;
-                font-weight: 700;
+            .subscribe {
+                margin-right: 30px;
+                margin-top: 8px;
             }
         }
     }
@@ -497,6 +497,7 @@
     outline: none;
     border-radius: 3px;
     background-color: #fff;
+    border: 0;
     border-bottom: 3px solid #dedede;
     color: #888;
     font-weight: bold;

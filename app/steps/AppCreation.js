@@ -9,15 +9,16 @@ export class AppCreation extends Component {
 			appName: '',
 			readOnly: false,
 			url: null,
-            error: false
+			error: false,
+			appnameValidation: false
 		};
-        this.errorMsg = '';
+		this.errorMsg = '';
 		this.appNameChange = this.appNameChange.bind(this);
-        this.createUrl = this.createUrl.bind(this);
+		this.createUrl = this.createUrl.bind(this);
 		this.showError = this.showError.bind(this);
 	}
 	componentDidMount() {
-		if(dataOperation.app && dataOperation.app.appName) {
+		if (dataOperation.app && dataOperation.app.appName) {
 			this.setState({
 				appName: dataOperation.app.appName,
 				readOnly: true
@@ -26,25 +27,32 @@ export class AppCreation extends Component {
 		}
 	}
 	appNameChange(event) {
+		let inputVal = event.target.value;
+		var patt = /^[a-zA-Z0-9_+-@$\.]+$/;
+		if (!patt.test(inputVal)) {
+			this.errorMsg = 'Use a-z,A-Z,0-9 and -,.,_,+,@$ chars only for the app name.'
+		}
 		this.setState({
-			appName: event.target.value
+			appName: inputVal,
+			appnameValidation: patt.test(inputVal),
+			error: !patt.test(inputVal)
 		});
 	}
 	submit() {
-		if(this.state.appName.trim() != '') {
-			if(dataOperation.user && dataOperation.user.apps && !dataOperation.user.apps.hasOwnProperty(this.state.appName)) {
+		if (this.state.appName.trim() != '') {
+			if (dataOperation.user && dataOperation.user.apps && !dataOperation.user.apps.hasOwnProperty(this.state.appName)) {
 				this.createApp();
 			} else {
 				this.errorMsg = this.state.appName + ' already exists!';
-                this.setState({
-                    error: true
-                });
+				this.setState({
+					error: true
+				});
 			}
 		} else {
-            this.errorMsg = 'App name should not be empty.';
-            this.setState({
-                error: true
-            });
+			this.errorMsg = 'App name should not be empty.';
+			this.setState({
+				error: true
+			});
 		}
 	}
 	createApp() {
@@ -59,9 +67,9 @@ export class AppCreation extends Component {
 				this.props.nextStep();
 			} else {
 				this.errorMsg = 'Some error occured. Please try again!';
-                this.setState({
-                    error: true
-                });
+				this.setState({
+					error: true
+				});
 			}
 		}).fail((res) => {
 
@@ -72,36 +80,42 @@ export class AppCreation extends Component {
 			url: url
 		});
 	}
-    showError() {
-        return (
-            <div className="error-box">
+	showError() {
+		return (
+			<div className="error-box">
                 {this.errorMsg}
             </div>
-        )
-    }
+		)
+	}
 	submitBtn() {
 		let btn;
-		if(this.state.readOnly) {
-            btn = (
-                <button className="btn btn-primary submit-btn" onClick={() => this.props.setStep(1)}>
+		if (this.state.readOnly) {
+			btn = (
+				<button className="btn btn-primary submit-btn" onClick={() => this.props.setStep(1)}>
                     Next
                 </button>
-            );
-        } else {
+			);
+		} else {
+			let readonly;
+			if (!this.state.appnameValidation) {
+				readonly = {
+					disabled: !this.state.appnameValidation
+				};
+			}
 			btn = (
-				<button className="btn btn-primary submit-btn" onClick={() => this.submit()}>
+				<button {...readonly} className="btn btn-primary submit-btn" onClick={() => this.submit()}>
       				Submit
       			</button>
 			);
-        }
+		}
 		return btn;
 	}
 	render() {
 		let readOnly = {
 			readOnly: this.state.readOnly
 		};
-	    return (
-	      <section className="single-step">
+		return (
+			<section className="single-step">
 	      	<h2>First things first, create an app</h2>
 	      	<p>
 	      		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eum, excepturi dicta quo veritatis itaque.
@@ -128,12 +142,10 @@ export class AppCreation extends Component {
 	      		</div>
 	      	</div>
 	      </section>
-	    );
-  	}
+		);
+	}
 }
 
-AppCreation.propTypes = {
-};
+AppCreation.propTypes = {};
 // Default props value
-AppCreation.defaultProps = {
-};
+AppCreation.defaultProps = {};

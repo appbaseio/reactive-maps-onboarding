@@ -84,7 +84,7 @@ export class LiveFiddle extends Component {
 						<input type="hidden" name="js" value={dataOperation.appSnippet()} />
 						<input type="hidden" name="panel_js" value={3} />
 						<input type="hidden" name="wrap" value='l' />
-						<button type="submit" className="btn btn-primary submit-btn">jsfiddle</button>
+						<button type="submit" className="subscribe"> <i className="fa fa-external-link"></i> jsfiddle</button>
 					</form>	
 			    </div>
 		    </section>

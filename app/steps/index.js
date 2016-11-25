@@ -8,24 +8,24 @@ import Clipboard from 'Clipboard';
 
 export class Steps extends Component {
 	constructor(props) {
-	    super(props);
-	    this.state = {
-	    	currentStep: 0,
-            completedStep: -1
-	    };
-	    this.nextStep = this.nextStep.bind(this);
+		super(props);
+		this.state = {
+			currentStep: 0,
+			completedStep: -1
+		};
+		this.nextStep = this.nextStep.bind(this);
 	}
-    setStep(step) {
-        if (this.state.completedStep + 1 >= step) {
-            this.setState({
-                currentStep: step
-            });
-        }
-    }
+	setStep(step) {
+		if (this.state.completedStep + 1 >= step) {
+			this.setState({
+				currentStep: step
+			});
+		}
+	}
 	nextStep() {
 		this.setState({
-			currentStep: this.state.currentStep+1,
-            completedStep: this.state.completedStep+1
+			currentStep: this.state.currentStep + 1,
+			completedStep: this.state.completedStep + 1
 		});
 	}
 	skipTutorial() {
@@ -35,14 +35,14 @@ export class Steps extends Component {
 	}
 	stepRender() {
 		if (this.state.currentStep == 3) {
-            let snippet = dataOperation.appSnippet();
-            new Clipboard('.copy-btn', {
-                text: function(trigger) {
-                    return snippet;
-                }
-            });
-        }
-        return (
+			let snippet = dataOperation.appSnippet();
+			new Clipboard('.copy-btn', {
+				text: function(trigger) {
+					return snippet;
+				}
+			});
+		}
+		return (
 			<ServeStep
 				key={this.state.currentStep}
 				step={this.state.currentStep}
@@ -52,16 +52,24 @@ export class Steps extends Component {
 			</ServeStep>
 		);
 	}
-    copyBtnRender(){
-        return (
-            <a className="copy-btn subscribe">Copy Generated Code</a>
-        )
-    }
+	renderComponent(method) {
+		let element;
+		switch (method) {
+			case 'logout':
+				if (this.state.currentStep === 0) {
+					element = (<LogoutScreen />);
+				}
+				break;
+		}
+		return element;
+	}
 	render() {
 		return (
 			<div>
 				<div className="left">
-					<img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
+					<div className="tex-left img-container reactive-logo">
+						<img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
+					</div>
 					<ul className="step-widget">
 						<h3>
 							Getting Started
@@ -96,10 +104,8 @@ export class Steps extends Component {
 							Final interactive app
 						</li>
 					</ul>
-                    {this.state.currentStep == 3 ? this.copyBtnRender() : null}
                     <a href="#" onClick={() => this.skipTutorial()} className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
-                    <LogoutScreen />
-				</div>
+                </div>
                 <div className="onboarding-navbar">
                     <h1>Reactive Maps</h1>
                     <a href="#" className="pull-right">Skip</a>
@@ -108,6 +114,7 @@ export class Steps extends Component {
                     <div className="status" style={{width: ((this.state.currentStep+1) * 25) + '%'}}></div>
                 </div>
 				<div className="right">
+					{this.renderComponent('logout')}
 					<ReactCSSTransitionGroup
 						transitionName="fadeSlideIn"
 						transitionAppear={true}
@@ -122,8 +129,6 @@ export class Steps extends Component {
 	}
 }
 
-Steps.propTypes = {
-};
+Steps.propTypes = {};
 // Default props value
-Steps.defaultProps = {
-};
+Steps.defaultProps = {};
