@@ -72,7 +72,14 @@ export class AppCreation extends Component {
 				});
 			}
 		}).fail((res) => {
-
+			if(res && res.responseJSON && res.responseJSON.Message && res.responseJSON.Message.indexOf('UNIQUE KEY') > 0) {
+				this.errorMsg = 'An app with the same name already exists!';
+			} else {
+				this.errorMsg = res.responseText;
+			}
+			this.setState({
+				error: true
+			});
 		});
 	}
 	createUrl(url) {
