@@ -12,7 +12,9 @@ export class LoginScreen extends Component {
         return (
             <div>
                 <div className="left">
-                    <img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
+                    <div className="tex-left img-container reactive-logo">
+                        <img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
+                    </div>
                 </div>
                 <div className="right">
                     <div className="steps-wrapper">
