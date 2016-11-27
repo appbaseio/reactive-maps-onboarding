@@ -49,9 +49,9 @@ export class LoginModal extends Component {
                                 </a>
                             </div>
                         </div>
-												<div className="row modal-fine-print">
-													By logging in, you agree to our <a href="https://appbase.io/tos.html" target="_blank">tos</a>.
-												</div>
+                                                <div className="row modal-fine-print">
+                                                    By logging in, you agree to our <a href="https://appbase.io/tos.html" target="_blank">tos</a>.
+                                                </div>
                     </Modal.Body>
                 </Modal>
             </div>

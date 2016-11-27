@@ -70,7 +70,7 @@ gulp.task('moveCss', function() {
 });
 
 gulp.task('moveFonts', function() {
-    return gulp.src(['bower_components/bootstrap/dist/fonts/*', 
+    return gulp.src(['bower_components/bootstrap/dist/fonts/*',
         'bower_components/font-awesome/fonts/*',
         'node_modules/reactive-maps/dist/fonts/**/*'
         ])
@@ -90,10 +90,10 @@ gulp.task('move_js_depends', function() {
 });
 
 gulp.task('compact', [
-    'customcss', 
-    'vendorcss', 
-    'vendorjs', 
-    'moveCss', 
+    'customcss',
+    'vendorcss',
+    'vendorjs',
+    'moveCss',
     'moveFonts',
     'moveImages',
     'move_js_depends'

@@ -20,7 +20,7 @@ export class LogoutScreen extends Component {
     }
 }
 
-LogoutScreen.propTypes = {  
+LogoutScreen.propTypes = {
 };
 // Default props value
 LogoutScreen.defaultProps = {
