@@ -1,3 +1,3 @@
 export var config = {
-    BRANCH: 'dev'
+	BRANCH: 'dev'
 };

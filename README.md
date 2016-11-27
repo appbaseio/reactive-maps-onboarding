@@ -1,4 +1,4 @@
-# GEM 
+# GEM
 
 ### GUI for Elasticsearch Mappings
 
@@ -13,13 +13,13 @@ A GUI for creating Elasticsearch data type mappings.
   "id": 1234,
   "flag": true,
   "location": {
-    "lat": 1234,
-    "lon": 1234
+	"lat": 1234,
+	"lon": 1234
   },
   "place": {
-    "country": "india",
-    "city": "ahmedabad",
-    "pincode": 380055
+	"country": "india",
+	"city": "ahmedabad",
+	"pincode": 380055
   }
 }
 ```
@@ -80,53 +80,53 @@ A GUI for creating Elasticsearch data type mappings.
 {
 	"filter": {
 	  "nGram_filter": {
-	    "type": "edge_ngram",
-	    "min_gram": 1,
-	    "max_gram": 20,
-	    "token_chars": [
-	      "letter",
-	      "digit",
-	      "punctuation",
-	      "symbol"
-	    ]
+		"type": "edge_ngram",
+		"min_gram": 1,
+		"max_gram": 20,
+		"token_chars": [
+		  "letter",
+		  "digit",
+		  "punctuation",
+		  "symbol"
+		]
 	  }
 	},
 	"analyzer": {
 	  "nGram_analyzer": {
-	    "type": "custom",
-	    "tokenizer": "whitespace",
-	    "filter": [
-	      "lowercase",
-	      "asciifolding",
-	      "nGram_filter"
-	    ]
+		"type": "custom",
+		"tokenizer": "whitespace",
+		"filter": [
+		  "lowercase",
+		  "asciifolding",
+		  "nGram_filter"
+		]
 	  },
 	  "body_analyzer": {
-	    "type": "custom",
-	    "tokenizer": "standard",
-	    "filter": [
-	      "lowercase",
-	      "asciifolding",
-	      "stop",
-	      "snowball",
-	      "word_delimiter"
-	    ]
+		"type": "custom",
+		"tokenizer": "standard",
+		"filter": [
+		  "lowercase",
+		  "asciifolding",
+		  "stop",
+		  "snowball",
+		  "word_delimiter"
+		]
 	  },
 	  "standard_analyzer": {
-	    "type": "custom",
-	    "tokenizer": "standard",
-	    "filter": [
-	      "lowercase",
-	      "asciifolding"
-	    ]
+		"type": "custom",
+		"tokenizer": "standard",
+		"filter": [
+		  "lowercase",
+		  "asciifolding"
+		]
 	  },
 	  "whitespace_analyzer": {
-	    "type": "whitespace",
-	    "tokenizer": "whitespace",
-	    "filter": [
-	      "lowercase",
-	      "asciifolding"
-	    ]
+		"type": "whitespace",
+		"tokenizer": "whitespace",
+		"filter": [
+		  "lowercase",
+		  "asciifolding"
+		]
 	  }
 	}
 }
