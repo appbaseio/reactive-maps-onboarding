@@ -94,9 +94,9 @@ export class IndexData extends Component {
 			<p>
 			  In this step, we will index 10 sample JSON objects so that we have something to see in our map view.
 			</p>
-						<p>
-							In the table below, you can change the <strong>Place Info</strong> field. Once you have the descriptions to your liking, go to the <strong>Next</strong> step.
-						</p>
+			<p>
+				In the table below, you can change the <strong>Place Info</strong> field. Once you have the descriptions to your liking, go to the <strong>Next</strong> step.
+			</p>
 			<div className="row">
 				<div className="input-field">
 					<table className="table table-bordered">

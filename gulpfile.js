@@ -31,7 +31,6 @@ var files = {
 			'bower_components/lzma/src/lzma.js',
 			'bower_components/urlsafe-base64/app.js',
 			'bower_components/appbase-js/browser/appbase.min.js',
-			'bower_components/sequencejs/scripts/imagesloaded.pkgd.min.js',
 			'node_modules/reactive-maps/dist/js/vendor.min.js'
 		],
 		custom: [
