@@ -7,8 +7,9 @@ import { dataOperation } from '../service/DataOperation';
 import {
 	ReactiveBase,
 	SingleList,
-	MultiList, 
-	ReactiveMap } from '@appbaseio/reactivemaps';
+	MultiList,
+	ReactiveMap
+} from '@appbaseio/reactivemaps';
 
 export class LiveExample extends Component {
 	constructor(props) {
@@ -16,7 +17,7 @@ export class LiveExample extends Component {
 		this.popoverContent = this.popoverContent.bind(this);
 
 	}
-	popoverContent(marker) {
+	onPopoverTrigger(marker) {
 		return (
 			<div className="popoverComponent row">
 				{marker._source.place_info}
@@ -32,36 +33,36 @@ export class LiveExample extends Component {
 					password={this.props.config.appbase.password}
 					>
 					<div className="row">
-						<div className="col-xs-12 col-sm-4 appbaseListCol">
+						<div className="col-xs-4 col-sm-4 appbaseListCol">
 							<SingleList
 								componentId="CitySensor"
 								appbaseField={this.props.mapping.city}
 								defaultSelected="London"
 								showCount={true}
 								size={100}
-								includeGeo={false}
 								showSearch={true}
 								title="Cities"
 								searchPlaceholder="Search City"
 							/>
 						</div>
-						<div className="col-xs-12 col-sm-8 h-100" style={{height: '1000px'}}>
+						<div className="col-xs-8 col-sm-8 h-100" style={{height: '1000px'}}>
 							<ReactiveMap
-								appbaseField={this.props.mapping.location}
-								defaultZoom={13}
-								defaultCenter={{ lat: 37.74, lng: -122.45 }}
-								historicalData={true}
-								setMarkerCluster={false}
-								defaultMapStyle={this.props.mapStyle}
-								autoCenter={true}
-								size={100}
-								showSearchAsMove={true}
-								showMapStyles={true}
-								title="ReactiveMap"
-								actuate={{
-									CitySensor: {"operation": "must"}
-								}}
-								/>
+							appbaseField={this.props.mapping.location}
+							defaultZoom={13}
+							defaultCenter={{ lat: 37.74, lng: -122.45 }}
+							setMarkerCluster={false}
+							defaultMapStyle={this.props.mapStyle}
+							autoCenter={true}
+							size={100}
+							showSearchAsMove={true}
+							showMapStyles={true}
+							title="Meetupblast"
+							showPopoverOn="click"
+							onPopoverTrigger = {this.onPopoverTrigger}
+							actuate={{
+								CitySensor: {"operation": "must"}
+							}}
+							/>
 						</div>
 					</div>
 				</ReactiveBase>
