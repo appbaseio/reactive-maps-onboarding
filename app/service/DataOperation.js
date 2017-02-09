@@ -130,14 +130,13 @@ class DataOperation {
 	<link rel="shortcut icon" href="assets/images/favicon.ico" />
 	<title>Reactive maps sample</title>
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/vendor.min.css" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/style.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://rawgit.com/appbaseio/reactivemaps/umd-test/dist/css/style.min.css" />
 	<!-- JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
 	<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places"></script>
-	<script type="text/javascript" src="https://rawgit.com/appbaseio/reactive-maps/umd/umd/ReactiveMaps.js"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/js/vendor.min.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/appbaseio/reactivemaps/0.1.4/umd/ReactiveMaps.js"></script>
 </head>
 <body>
 	<div id="root"></div>
@@ -155,10 +154,9 @@ class DataOperation {
 			'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js',
 			'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js',
 			'https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places',
-			'https://rawgit.com/appbaseio/reactive-maps/umd/umd/ReactiveMaps.js',
-			'https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/js/vendor.min.js',
-			'https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/vendor.min.css',
-			'https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/style.min.css'
+			'https://rawgit.com/appbaseio/reactivemaps/0.1.4/umd/ReactiveMaps.js',
+			'https://rawgit.com/appbaseio/reactivemaps/umd-test/dist/css/style.min.css',
+			'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
 		];
 		return resources.join(',');
 	}

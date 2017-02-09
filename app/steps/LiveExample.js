@@ -5,12 +5,10 @@ import {
 import { render } from 'react-dom';
 import { dataOperation } from '../service/DataOperation';
 import {
-	ReactiveMap,
-	AppbaseMap,
-	AppbaseSearch,
-	AppbaseSlider,
-	AppbaseList
-} from 'reactive-maps';
+	ReactiveBase,
+	SingleList,
+	MultiList, 
+	ReactiveMap } from '@appbaseio/reactivemaps';
 
 export class LiveExample extends Component {
 	constructor(props) {
@@ -27,43 +25,46 @@ export class LiveExample extends Component {
 	}
 	render() {
 		return (
-			<div className="row m-0 h-100 liveExample">
-				<ReactiveMap config={this.props.config} />
-				<div className="col s12 m4 appbaseListCol">
-					<AppbaseList
-						sensorId="CitySensor"
-						inputData={this.props.mapping.city}
-						defaultSelected="sanfrancisco"
-						showCount={true}
-						size={100}
-						multipleSelect={false}
-						includeGeo={false}
-						staticSearch={true}
-						title="Cities"
-						searchPlaceholder="Search City"
-					/>
-				</div>
-				<div className="col s12 m8 h-100" style={{height: '1000px'}}>
-					<AppbaseMap
-						inputData={this.props.mapping.location}
-						defaultZoom={13}
-						defaultCenter={{ lat: 37.74, lng: -122.45 }}
-						historicalData={true}
-						markerCluster={false}
-						searchComponent="appbase"
-						searchField={this.props.mapping.venue}
-						mapStyle={this.props.mapStyle}
-						autoCenter={true}
-						searchAsMoveComponent={true}
-						MapStylesComponent={true}
-						title="Meetupblast"
-						showPopoverOn = "onClick"
-						popoverContent = {this.popoverContent}
-						depends={{
-							CitySensor: {"operation": "must"}
-						}}
-						/>
-				</div>
+			<div className="container-fluid h-100 liveExample">
+				<ReactiveBase
+					app={this.props.config.appbase.appname}
+					username={this.props.config.appbase.username}
+					password={this.props.config.appbase.password}
+					>
+					<div className="row">
+						<div className="col-xs-12 col-sm-4 appbaseListCol">
+							<SingleList
+								componentId="CitySensor"
+								appbaseField={this.props.mapping.city}
+								defaultSelected="London"
+								showCount={true}
+								size={100}
+								includeGeo={false}
+								showSearch={true}
+								title="Cities"
+								searchPlaceholder="Search City"
+							/>
+						</div>
+						<div className="col-xs-12 col-sm-8 h-100" style={{height: '1000px'}}>
+							<ReactiveMap
+								appbaseField={this.props.mapping.location}
+								defaultZoom={13}
+								defaultCenter={{ lat: 37.74, lng: -122.45 }}
+								historicalData={true}
+								setMarkerCluster={false}
+								defaultMapStyle={this.props.mapStyle}
+								autoCenter={true}
+								size={100}
+								showSearchAsMove={true}
+								showMapStyles={true}
+								title="ReactiveMap"
+								actuate={{
+									CitySensor: {"operation": "must"}
+								}}
+								/>
+						</div>
+					</div>
+				</ReactiveBase>
 			</div>
 		);
 	}
@@ -72,7 +73,7 @@ export class LiveExample extends Component {
 LiveExample.propTypes = {};
 // Default props value
 LiveExample.defaultProps = {
-	mapStyle: "MapBox",
+	mapStyle: "Standard",
 	mapping: {
 		city: 'city',
 		location: 'location'

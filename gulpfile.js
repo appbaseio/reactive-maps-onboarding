@@ -16,8 +16,7 @@ var files = {
 			'node_modules/codemirror/addon/dialog/dialog.css',
 			'node_modules/react-select2-wrapper/css/select2.css',
 			'node_modules/react-select2-wrapper/css/select2.css',
-			'node_modules/reactive-maps/dist/css/vendor.min.css',
-			'node_modules/reactive-maps/dist/css/style.min.css'
+			'node_modules/@appbaseio/reactivemaps/dist/css/style.min.css'
 		],
 		custom: ['assets/css/*.css'],
 		sassFile: ['assets/styles/*.scss']

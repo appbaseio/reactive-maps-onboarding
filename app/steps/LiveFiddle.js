@@ -30,8 +30,8 @@ export class LiveFiddle extends Component {
 			js_modernizr: false,
 			js_library: "",
 			html_classes: "",
-			css_external: "https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/vendor.min.css;https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/css/style.min.css",
-			js_external: "https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js;https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places;https://rawgit.com/appbaseio/reactive-maps/umd/umd/ReactiveMaps.js;https://cdn.rawgit.com/appbaseio/reactive-maps/umd/dist/js/vendor.min.js"
+			css_external: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css;https://rawgit.com/appbaseio/reactivemaps/umd-test/dist/css/style.min.css",
+			js_external: "https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js;https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places;https://rawgit.com/appbaseio/reactivemaps/0.1.4/umd/ReactiveMaps.js;"
 		};
 		return JSON.stringify(config);
 	}

@@ -66,7 +66,7 @@ export class Steps extends Component {
 	render() {
 		return (
 			<div>
-				<div className="left">
+				<div className="onboarding-left">
 					<div className="tex-left img-container reactive-logo">
 						<img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
 					</div>
@@ -113,7 +113,7 @@ export class Steps extends Component {
 				<div className="onboarding-progress">
 					<div className="status" style={{width: ((this.state.currentStep+1) * 25) + '%'}}></div>
 				</div>
-				<div className="right">
+				<div className="onboarding-right">
 					{this.renderComponent('logout')}
 					<ReactCSSTransitionGroup
 						transitionName="fadeSlideIn"
