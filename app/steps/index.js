@@ -74,7 +74,7 @@ export class Steps extends Component {
 					</div>
 					<ul className="step-widget">
 						<h3>
-							Getting Started
+							Reactive Maps Interactive Tutorial
 							<span className="pull-right">{this.state.currentStep + 1} of 4</span>
 						</h3>
 						<li onClick={this.setStep.bind(this, 0)} className={(this.state.currentStep == 0 ? 'active' : this.state.completedStep >= 0 ? 'finished' : null)}>
