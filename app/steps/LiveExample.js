@@ -19,15 +19,15 @@ export class LiveExample extends Component {
 	popoverContent(marker) {
 		return (
 			<div className="popoverComponent row">
-		   {marker._source.place_info}
-		</div>
+				{marker._source.place_info}
+			</div>
 		);
 	}
 	render() {
 		return (
 			<div className="container-fluid h-100 liveExample">
 				<ReactiveBase
-					app={this.props.config.appbase.appname}
+					app={this.props.config.appbase.app}
 					username={this.props.config.appbase.username}
 					password={this.props.config.appbase.password}
 					>

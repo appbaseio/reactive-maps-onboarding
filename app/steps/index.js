@@ -68,7 +68,9 @@ export class Steps extends Component {
 			<div>
 				<div className="onboarding-left">
 					<div className="tex-left img-container reactive-logo">
-						<img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
+						<a href="https://opensource.appbase.io/reactivemaps/">
+							<img src="assets/images/reactive-logo.png" alt="Reactive Maps" className="img-responsive" />
+						</a>
 					</div>
 					<ul className="step-widget">
 						<h3>
@@ -104,10 +106,12 @@ export class Steps extends Component {
 							See the Maps UI
 						</li>
 					</ul>
-					<a href="#" onClick={() => this.skipTutorial()} className="skip-link">Skip Tutorial<i className="fa fa-arrow-right"></i></a>
+					<a href="https://github.com/appbaseio/reactivemaps" className="skip-link">
+						Github
+					</a>
 				</div>
 				<div className="onboarding-navbar">
-					<h1>Reactive Maps</h1>
+					<h1>ReactiveMaps</h1>
 					<a href="#" className="pull-right">Skip</a>
 				</div>
 				<div className="onboarding-progress">

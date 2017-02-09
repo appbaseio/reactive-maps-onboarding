@@ -113,7 +113,7 @@ class DataOperation {
 	appConfig() {
 		let app = this.app ? this.app : this.defaultApp;
 		return {
-			"appname": app.appName,
+			"app": app.appName,
 			"username": app.username,
 			"password": app.password,
 			"type": app.type

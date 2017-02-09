@@ -5,38 +5,30 @@ export const sampleCodeSnippet = `const {
 	ReactiveMap } = ReactiveMaps;
 	
 const Testing = React.createClass({
-	getDefaultProps: function() {
-		return {
-			mapStyle: "Standard",
+    getDefaultProps: function() {
+        return {
+        	mapStyle: "Standard",
 			mapping: {
 				city: 'city',
 				location: 'location'
 			},
 			config: {
-				"appbase": {
-					"appname": "ReactTestApp3",
-					"username": "CR1KCtfUY",
-					"password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
-					"type": "test"
-				}
+				"appbase": {{appbaseConfig}}
 			}
-		};
-	},
-	popoverContent: function(marker) {
-		return (
-		<div className="popoverComponent row">
-			{marker._source.place_info}
-		</div>
-		);
-	},
-	defaultQuery: function(val) {
-	alert(val);
-},
-	render: function () {
-		return (
-			<div className="container-fluid h-100 liveExample">
+        };
+    },
+    onPopoverTrigger: function(marker) {
+        return (
+        <div className="popoverComponent row">
+           {marker._source.place_info}
+        </div>
+        );
+    },
+     render: function () {
+        return (
+          <div className="container-fluid h-100 liveExample">
 				<ReactiveBase
-					app={this.props.config.appbase.appname}
+					app={this.props.config.appbase.app}
 					username={this.props.config.appbase.username}
 					password={this.props.config.appbase.password}
 					>
@@ -48,7 +40,6 @@ const Testing = React.createClass({
 								defaultSelected="London"
 								showCount={true}
 								size={100}
-								includeGeo={false}
 								showSearch={true}
 								title="Cities"
 								searchPlaceholder="Search City"
@@ -59,7 +50,6 @@ const Testing = React.createClass({
 							appbaseField={this.props.mapping.location}
 							defaultZoom={13}
 							defaultCenter={{ lat: 37.74, lng: -122.45 }}
-							historicalData={true}
 							setMarkerCluster={false}
 							defaultMapStyle={this.props.mapStyle}
 							autoCenter={true}
@@ -67,6 +57,8 @@ const Testing = React.createClass({
 							showSearchAsMove={true}
 							showMapStyles={true}
 							title="Meetupblast"
+							showPopoverOn="click"
+							onPopoverTrigger = {this.onPopoverTrigger}
 							actuate={{
 								CitySensor: {"operation": "must"}
 							}}
@@ -75,11 +67,11 @@ const Testing = React.createClass({
 					</div>
 				</ReactiveBase>
 			</div>
-		)
-	}
+        )
+    }
 })
 
 ReactDOM.render(
-	<Testing></Testing>,
-	document.getElementById('root')
+  <Testing></Testing>,
+  document.getElementById('root')
 );`;

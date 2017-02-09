@@ -1,5 +1,4 @@
-import {
-	default as React, Component } from 'react';
+import { default as React, Component } from 'react';
 import { render } from 'react-dom';
 import { dataOperation } from '../service/DataOperation';
 import { JsonView } from '../others/JsonView';

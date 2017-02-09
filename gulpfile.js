@@ -8,6 +8,7 @@ var rename = require("gulp-rename");
 var files = {
 	css: {
 		vendor: [
+			'bower_components/materialze/dist/css/materialze.min.css',
 			'bower_components/bootstrap/dist/css/bootstrap.min.css',
 			'bower_components/font-awesome/css/font-awesome.min.css',
 			'assets/vendor/hljs.css',
@@ -70,6 +71,7 @@ gulp.task('moveCss', function() {
 gulp.task('moveFonts', function() {
 	return gulp.src(['bower_components/bootstrap/dist/fonts/*',
 		'bower_components/font-awesome/fonts/*',
+		'bower_components/materialze/fonts/*',
 		'node_modules/reactive-maps/dist/fonts/**/*'
 		])
 		.pipe(gulp.dest('dist/fonts'));
