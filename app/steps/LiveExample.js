@@ -14,7 +14,7 @@ import {
 export class LiveExample extends Component {
 	constructor(props) {
 		super(props);
-		this.popoverContent = this.popoverContent.bind(this);
+		this.onPopoverTrigger = this.onPopoverTrigger.bind(this);
 
 	}
 	onPopoverTrigger(marker) {
@@ -37,7 +37,7 @@ export class LiveExample extends Component {
 							<SingleList
 								componentId="CitySensor"
 								appbaseField={this.props.mapping.city}
-								defaultSelected="London"
+								defaultSelected="london"
 								showCount={true}
 								size={100}
 								showSearch={true}

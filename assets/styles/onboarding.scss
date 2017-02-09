@@ -17,6 +17,12 @@
 		.reactive-logo {
 			padding: 0 40px;
 			text-align: left;
+			position: absolute;
+			left: -25px;
+			top: 15px;
+			img {
+				width: 30px;
+			}
 		}
 
 		.skip-link {

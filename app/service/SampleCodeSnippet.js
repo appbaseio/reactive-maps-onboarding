@@ -37,7 +37,7 @@ const Testing = React.createClass({
 							<SingleList
 								componentId="CitySensor"
 								appbaseField={this.props.mapping.city}
-								defaultSelected="London"
+								defaultSelected="london"
 								showCount={true}
 								size={100}
 								showSearch={true}

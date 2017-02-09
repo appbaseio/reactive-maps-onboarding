@@ -106,9 +106,9 @@ export class Steps extends Component {
 							See the Maps UI
 						</li>
 					</ul>
-					<a href="https://github.com/appbaseio/reactivemaps" className="skip-link">
-						Github
-					</a>
+					<span className="skip-link">
+						<iframe  frameBorder="0" src="https://ghbtns.com/github-btn.html?user=appbaseio&amp;repo=reactivemaps&amp;type=star&amp;count=true&amp;size=large" scrolling="0" width="160px" height="30px"></iframe>
+					</span>
 				</div>
 				<div className="onboarding-navbar">
 					<h1>ReactiveMaps</h1>
