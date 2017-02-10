@@ -14,17 +14,6 @@
 		padding-top: 45px;
 		background-color: $secondary-color;
 
-		.reactive-logo {
-			padding: 0 40px;
-			text-align: left;
-			position: absolute;
-			left: -25px;
-			top: 15px;
-			img {
-				width: 30px;
-			}
-		}
-
 		.skip-link {
 			width: auto;
 			height: 70px;
@@ -320,7 +309,7 @@
 	width: 100%;
 	margin: 0;
 	list-style: none;
-	padding: 60px 40px;
+	padding: 60px 40px !important;
 	color: #b9bcff;
 	font-size: 18px;
 	line-height: 46px;
@@ -652,4 +641,23 @@
 	-webkit-transition: all 100ms ease;
 	transition: all 100ms ease;
 	opacity: 0;
+}
+
+.reactive-logo {
+	padding: 0 40px;
+	text-align: left;
+	position: absolute;
+	left: -25px;
+	top: 15px;
+	&.inlogin {
+		left: 0;
+		top: 0;
+		padding: 0;
+		img {
+			width: 60px;
+		}
+	}
+	img {
+		width: 30px;
+	}
 }

@@ -8,15 +8,13 @@ var rename = require("gulp-rename");
 var files = {
 	css: {
 		vendor: [
-			'bower_components/materialze/dist/css/materialze.min.css',
+			'bower_components/materialize/dist/css/materialize.min.css',
 			'bower_components/bootstrap/dist/css/bootstrap.min.css',
 			'bower_components/font-awesome/css/font-awesome.min.css',
 			'assets/vendor/hljs.css',
 			'node_modules/codemirror/lib/codemirror.css',
 			'node_modules/codemirror/addon/fold/foldgutter.css',
 			'node_modules/codemirror/addon/dialog/dialog.css',
-			'node_modules/react-select2-wrapper/css/select2.css',
-			'node_modules/react-select2-wrapper/css/select2.css',
 			'node_modules/@appbaseio/reactivemaps/dist/css/style.min.css'
 		],
 		custom: ['assets/css/*.css'],

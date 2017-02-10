@@ -131,12 +131,13 @@ class DataOperation {
 	<title>Reactive maps sample</title>
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" />
 	<link rel="stylesheet" type="text/css" href="https://rawgit.com/appbaseio/reactivemaps/umd-test/dist/css/style.min.css" />
 	<!-- JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
 	<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places"></script>
-	<script type="text/javascript" src="https://rawgit.com/appbaseio/reactivemaps/0.1.4/umd/ReactiveMaps.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/appbaseio/reactivemaps/a84085ba/umd/ReactiveMaps.js"></script>
 </head>
 <body>
 	<div id="root"></div>
@@ -154,9 +155,10 @@ class DataOperation {
 			'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js',
 			'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js',
 			'https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places',
-			'https://rawgit.com/appbaseio/reactivemaps/0.1.4/umd/ReactiveMaps.js',
+			'https://cdn.rawgit.com/appbaseio/reactivemaps/a84085ba/umd/ReactiveMaps.js',
 			'https://rawgit.com/appbaseio/reactivemaps/umd-test/dist/css/style.min.css',
-			'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+			'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css'
 		];
 		return resources.join(',');
 	}

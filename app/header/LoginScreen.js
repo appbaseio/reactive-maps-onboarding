@@ -12,11 +12,11 @@ export class LoginScreen extends Component {
 		return (
 			<div>
 				<div className="left">
-					<div className="tex-left img-container reactive-logo">
-						<img src="dist/images/logo.svg" alt="Reactive Maps" width="120" />
+					<div className="tex-left img-container reactive-logo inlogin">
+						<img src="assets/images/logo-blue.png" alt="Reactive Maps" className="img-responsive" />
 					</div>
 				</div>
-				<div className="right">
+				<div className="on-right">
 					<div className="steps-wrapper">
 						<h2>Get started with an interactive tutorial for Reactive Maps</h2>
 						{loginModal}
