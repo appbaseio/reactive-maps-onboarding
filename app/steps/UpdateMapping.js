@@ -156,10 +156,10 @@ export class UpdateMapping extends Component {
 			<section className="single-step" id="upate-mapping">
 				<h2>Define Data Model</h2>
 				<p>
-					We will now define the data model (aka schema). In the data model editor's left pane below, we show sample JSON data that we intend to index in the next step. In the right pane, the editor shows the inferred data types. You can edit these to be more specific, but for this demo - we're all set.
+					We will now define a simple data model using a JSON object that we intend to insert into the app. The corresponding data types (string, geo_point, string) appear in the right pane.
 				</p>
 				<p>
-					Select <strong>Apply Mapping</strong> to apply the data model for the type <strong>test</strong> and then press <strong>Next</strong>.
+					Select <strong>Apply Mapping</strong> to apply the data model and then press the <strong>Next</strong> button below.
 				</p>
 				{this.state.error ? this.showError(): null}
 

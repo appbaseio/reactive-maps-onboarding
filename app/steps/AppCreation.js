@@ -125,7 +125,7 @@ export class AppCreation extends Component {
 		  <section className="single-step">
 			<h2>Create an app</h2>
 			<p>
-				First things first, we will start by creating an appbase.io app. This is where all the data will reside once our maps app is up and running.
+				First things first, we will start by creating an appbase.io app. This is where all the data will reside once our <b>reactivemaps</b> app is up and running.
 			</p>
 
 			{this.state.error ? this.showError(): null}

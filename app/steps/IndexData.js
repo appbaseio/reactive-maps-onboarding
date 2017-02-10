@@ -92,10 +92,10 @@ export class IndexData extends Component {
 		  <section className="single-step" id="index-data">
 			<h2>Index Data</h2>
 			<p>
-			  In this step, we will index 10 sample JSON objects so that we have something to see in our map view.
+			  In this step, we will index 10 sample JSON objects so that we have something to see in the final maps view.
 			</p>
 			<p>
-				In the table below, you can change the <strong>Place Info</strong> field. Once you have the descriptions to your liking, go to the <strong>Next</strong> step.
+				In the table below, you can change the <strong>Place Info</strong> field. Once you have the descriptions to your liking, press <strong>Submit</strong> to go the final step.
 			</p>
 			<div className="row">
 				<div className="input-field">
