@@ -1,5 +1,9 @@
 @import "variables.scss";
 
+body {
+	background-color: $primary-color;
+}
+
 #onboarding-container {
 	text-align: center;
 	font-family: 'Source Sans Pro', sans-serif;
