@@ -5,16 +5,16 @@ export const sampleCodeSnippet = `const {
 	ReactiveMap } = ReactiveMaps;
 
 const Testing = React.createClass({
-    onPopoverTrigger: function(marker) {
-        return (
-        <div>
-           {marker._source.place_info}
-        </div>
-        );
-    },
-     render: function () {
-        return (
-          <div className="container-fluid h-100 liveExample">
+	onPopoverTrigger: function(marker) {
+		return (
+			<div>
+				{marker._source.place_info}
+			</div>
+		);
+	},
+	render: function () {
+		return (
+			<div className="container-fluid h-100 liveExample">
 				<ReactiveBase
 					app={{app}}
 					username={{username}}
@@ -42,11 +42,11 @@ const Testing = React.createClass({
 					</div>
 				</ReactiveBase>
 			</div>
-        )
-    }
+		)
+	}
 })
 
 ReactDOM.render(
-  <Testing></Testing>,
-  document.getElementById('root')
+	<Testing></Testing>,
+	document.getElementById('root')
 );`;

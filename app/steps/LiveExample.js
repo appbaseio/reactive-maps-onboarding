@@ -37,31 +37,19 @@ export class LiveExample extends Component {
 							<SingleList
 								componentId="CitySensor"
 								appbaseField={this.props.mapping.city}
-								defaultSelected="london"
-								showCount={true}
-								size={100}
-								showSearch={true}
 								title="Cities"
-								searchPlaceholder="Search City"
+								defaultSelected="sanfrancisco"
+								showSearch={true}
 							/>
 						</div>
 						<div className="col-xs-8 col-sm-8 h-100" style={{height: '1000px'}}>
 							<ReactiveMap
-							appbaseField={this.props.mapping.location}
-							defaultZoom={13}
-							defaultCenter={{ lat: 37.74, lng: -122.45 }}
-							setMarkerCluster={false}
-							defaultMapStyle={this.props.mapStyle}
-							autoCenter={true}
-							size={100}
-							showSearchAsMove={true}
-							showMapStyles={true}
-							title="Meetupblast"
-							showPopoverOn="click"
-							onPopoverTrigger = {this.onPopoverTrigger}
-							actuate={{
-								CitySensor: {"operation": "must"}
-							}}
+								appbaseField={this.props.mapping.location}
+								showPopoverOn="click"
+								onPopoverTrigger={this.onPopoverTrigger}
+								actuate={{
+								  CitySensor: {"operation": "must"}
+								}}
 							/>
 						</div>
 					</div>
