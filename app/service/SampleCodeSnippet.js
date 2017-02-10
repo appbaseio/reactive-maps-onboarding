@@ -13,13 +13,18 @@ const Testing = React.createClass({
 				location: 'location'
 			},
 			config: {
-				"appbase": {{appbaseConfig}}
+				"appbase": {
+					app: {{app}},
+					username: {{username}},
+					password: {{password}},
+					type: {{type}}
+				}
 			}
         };
     },
     onPopoverTrigger: function(marker) {
         return (
-        <div className="popoverComponent row">
+        <div>
            {marker._source.place_info}
         </div>
         );

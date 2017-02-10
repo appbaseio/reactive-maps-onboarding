@@ -65,31 +65,33 @@ export class Steps extends Component {
 					element = (
 						<div className="credentials">
 							<div className="well">
-								<table border = '0'>
-									<tr>
-										<th>
-											app:
-										</th>
-										<td>
-											{dataOperation.app.appName}
-										</td>
-									</tr>
-									<tr>
-										<th>
-											username:
-										</th>
-										<td>
-											{dataOperation.app.username}
-										</td>
-									</tr>
-									<tr>
-										<th>
-											password:
-										</th>
-										<td>
-											{dataOperation.app.password}
-										</td>
-									</tr>
+								<table>
+									<tbody>
+										<tr>
+											<th>
+												app:
+											</th>
+											<td>
+												{dataOperation.app.appName}
+											</td>
+										</tr>
+										<tr>
+											<th>
+												username:
+											</th>
+											<td>
+												{dataOperation.app.username}
+											</td>
+										</tr>
+										<tr>
+											<th>
+												password:
+											</th>
+											<td>
+												{dataOperation.app.password}
+											</td>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 						</div>

@@ -7,11 +7,11 @@ class DataOperation {
 		this.user = null;
 		this.app = null;
 		this.defaultApp = {
-			"appName": "ReactTestApp3",
-			"username": "CR1KCtfUY",
-			"password": "a5aaebbe-c734-43e5-89dc-76d0f37689eb",
+			"appName": "testr1",
+			"username": "mnFcuMCIG",
+			"password": "49e6e356-adff-45b0-b5d0-5f4836d277b1",
 			"type": "test"
-		};
+		}
 		$.ajaxSetup({
 			crossDomain: true,
 			xhrFields: {
@@ -100,11 +100,11 @@ class DataOperation {
 	}
 	createUrl(cb) {
 		let obj = {
-			url: 'https://'+this.app.username+':'+this.app.password+'@scalr.api.appbase.io',
+			url: 'https://' + this.app.username + ':' + this.app.password + '@scalr.api.appbase.io',
 			appname: this.app.appName,
 			version: '2.4.0'
 		};
-		if(this.app.type) {
+		if (this.app.type) {
 			obj.selectedType = [this.app.type];
 			obj.selectedTypes = [this.app.type];
 		}
@@ -144,7 +144,7 @@ class DataOperation {
 
 </html>`;
 
-		if(method === 'full') {
+		if (method === 'full') {
 			return max_html;
 		}
 		return min_html;
@@ -163,7 +163,11 @@ class DataOperation {
 	}
 	appSnippet() {
 		let obj = this.appConfig();
-		return this.sampleCodeSnippet.replace('{{appbaseConfig}}', JSON.stringify(obj, null, 4));
+		let data = this.sampleCodeSnippet;
+		for(let field in obj) {
+			data = data.replace('{{'+field+'}}', '"'+obj[field]+'"');
+		}
+		return data;
 	}
 }
 

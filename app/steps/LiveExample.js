@@ -19,7 +19,7 @@ export class LiveExample extends Component {
 	}
 	onPopoverTrigger(marker) {
 		return (
-			<div className="popoverComponent row">
+			<div>
 				{marker._source.place_info}
 			</div>
 		);

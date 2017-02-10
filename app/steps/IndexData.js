@@ -1,6 +1,7 @@
-import { default as React, Component } from 'react';
+import {
+	default as React, Component } from 'react';
 import { render } from 'react-dom';
-import { Popover, OverlayTrigger} from 'react-bootstrap';
+import { Popover, OverlayTrigger } from 'react-bootstrap';
 import Highlight from 'react-highlight';
 import { dataOperation } from '../service/DataOperation';
 import { JsonView } from '../others/JsonView';
@@ -21,14 +22,14 @@ export class IndexData extends Component {
 	}
 	submit() {
 		let finalData = indexData.map((record, i) => {
-			record.place_info = this.refs['info'+i].value;
+			record.place_info = this.refs['info' + i].value;
 			return record;
 		});
-		this.IndexData();
+		this.IndexData(finalData);
 	}
-	IndexData() {
-		dataOperation.indexData(indexData).on('data', function(res) {
-		   this.props.nextStep();
+	IndexData(finalData) {
+		dataOperation.indexData(finalData).on('data', function(res) {
+			this.props.nextStep();
 		}.bind(this)).on('error', function(err) {
 			alert('Try different name please!');
 		});
@@ -36,12 +37,12 @@ export class IndexData extends Component {
 	setJsonPopover(fieldRecord) {
 		let fieldRecordStringify = JSON.stringify(fieldRecord, null, 2);
 		const jsonPopover = (
-		  <Popover id="jsonPopover" className='jsonPopover'>
+			<Popover id="jsonPopover" className='jsonPopover'>
 			<Highlight className="json">{fieldRecordStringify}</Highlight>
 		  </Popover>
 		);
 		const jsonOverlay = (
-		  <OverlayTrigger trigger={['click']} rootClose placement="right" overlay={jsonPopover}>
+			<OverlayTrigger trigger={['click']} rootClose placement="right" overlay={jsonPopover}>
 			<button className="jsonPopoverBtn"></button>
 		  </OverlayTrigger>
 		);
@@ -72,7 +73,7 @@ export class IndexData extends Component {
 	}
 	submitBtn() {
 		let btn;
-		if(this.props.completedStep >= 2) {
+		if (this.props.completedStep >= 2) {
 			btn = (
 				<button className="btn btn-primary pos-static submit-btn" onClick={() => this.props.setStep(3)}>
 					Next
@@ -89,7 +90,7 @@ export class IndexData extends Component {
 	}
 	render() {
 		return (
-		  <section className="single-step" id="index-data">
+			<section className="single-step" id="index-data">
 			<h2>Index Data</h2>
 			<p>
 			  In this step, we will index 10 sample JSON objects so that we have something to see in the final maps view.
@@ -126,11 +127,9 @@ export class IndexData extends Component {
 			</div>
 		  </section>
 		);
-  }
+	}
 }
 
-IndexData.propTypes = {
-};
+IndexData.propTypes = {};
 // Default props value
-IndexData.defaultProps = {
-};
+IndexData.defaultProps = {};
