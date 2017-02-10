@@ -16,21 +16,18 @@ export class LiveFiddle extends Component {
 	}
 	codepenConfig() {
 		let config = {
-			title: "Reactive Maps Example",
-			description: "Reactive Maps Interactive Map",
-			html: '<div id="root"></app>',
-			html_pre_processor: "none",
-			css: '',
-			css_pre_processor: "none",
-			css_starter: "neither",
-			css_prefix_free: false,
-			js: dataOperation.appSnippet(),
-			js_pre_processor: "babel",
-			js_modernizr: false,
-			js_library: "",
-			html_classes: "",
-			css_external: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css;https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css;https://rawgit.com/appbaseio/reactivemaps/umd-test/dist/css/style.min.css;",
-			js_external: "https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js;https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places;https://cdn.rawgit.com/appbaseio/reactivemaps/a84085ba/umd/ReactiveMaps.js;"
+			title                 : "Reactivemaps App",
+			description           : "Powered by appbase.io",
+			private               : false,
+			editors               : "101",
+			layout                : "left",
+			html                  : "<div id='root'></div>",
+			js                    : dataOperation.appSnippet(),
+			js_pre_processor      : "babel",
+			head                  : "<meta name='viewport' content='width=device-width'>",
+			css_external          : "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css;https://cdn.rawgit.com/appbaseio/reactivemaps/master/dist/css/style.min.css",
+			js_external           : "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js;https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js;https://maps.google.com/maps/api/js?key=AIzaSyC-v0oz7Pay_ltypZbKasABXGiY9NlpCIY&libraries=places;https://cdn.rawgit.com/appbaseio/reactivemaps/master/umd/ReactiveMaps.js"
+
 		};
 		return JSON.stringify(config);
 	}
@@ -77,13 +74,9 @@ export class LiveFiddle extends Component {
 					</Tab>
 				</Tabs>
 				<div className="extra-btns">
-					<form action="http://jsfiddle.net/api/post/library/pure/" method="POST" target="check">
-						<input type="hidden" name="html" value={dataOperation.htmlSnippet()} />
-						<input type="hidden" name="resources" value={dataOperation.resources()} />
-						<input type="hidden" name="js" value={dataOperation.appSnippet()} />
-						<input type="hidden" name="panel_js" value={3} />
-						<input type="hidden" name="wrap" value='l' />
-						<button type="submit" className="subscribe"> <i className="fa fa-external-link"></i> jsfiddle</button>
+					<form action="http://codepen.io/pen/define" method="POST" target="_blank">
+						<input type="hidden" name="data" value={this.codepenConfig()} />
+						<button type="submit" className="subscribe"><i className="fa fa-external-link"></i> Codepen</button>
 					</form>
 				</div>
 			</section>

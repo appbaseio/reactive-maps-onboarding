@@ -3,7 +3,7 @@ export const sampleCodeSnippet = `const {
 	SingleList,
 	MultiList,
 	ReactiveMap } = ReactiveMaps;
-	
+
 const Testing = React.createClass({
     getDefaultProps: function() {
         return {
@@ -33,7 +33,7 @@ const Testing = React.createClass({
 					password={this.props.config.appbase.password}
 					>
 					<div className="row">
-						<div className="col-xs-4 col-sm-4 appbaseListCol">
+						<div className="col s4 col-xs-4 col-sm-4 appbaseListCol">
 							<SingleList
 								componentId="CitySensor"
 								appbaseField={this.props.mapping.city}
@@ -45,7 +45,7 @@ const Testing = React.createClass({
 								searchPlaceholder="Search City"
 							/>
 						</div>
-						<div className="col-xs-8 col-sm-8 h-100" style={{height: '1000px'}}>
+						<div className="col s8 col-xs-8 col-sm-8 h-100" style={{height: '1000px'}}>
 							<ReactiveMap
 							appbaseField={this.props.mapping.location}
 							defaultZoom={13}
