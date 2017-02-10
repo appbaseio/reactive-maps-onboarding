@@ -60,6 +60,42 @@ export class Steps extends Component {
 					element = (<LogoutScreen />);
 				}
 				break;
+			case 'credentials':
+				if(dataOperation.app && dataOperation.app.appName) {
+					element = (
+						<div className="credentials">
+							<div className="well">
+								<table border = '0'>
+									<tr>
+										<th>
+											app:
+										</th>
+										<td>
+											{dataOperation.app.appName}
+										</td>
+									</tr>
+									<tr>
+										<th>
+											username:
+										</th>
+										<td>
+											{dataOperation.app.username}
+										</td>
+									</tr>
+									<tr>
+										<th>
+											password:
+										</th>
+										<td>
+											{dataOperation.app.password}
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					);
+				}
+			break;
 		}
 		return element;
 	}
@@ -106,6 +142,7 @@ export class Steps extends Component {
 							See the Maps UI
 						</li>
 					</ul>
+					{this.renderComponent('credentials')}
 					<span className="skip-link">
 						<iframe  frameBorder="0" src="https://ghbtns.com/github-btn.html?user=appbaseio&amp;repo=reactivemaps&amp;type=star&amp;count=true&amp;size=large" scrolling="0" width="160px" height="30px"></iframe>
 					</span>
