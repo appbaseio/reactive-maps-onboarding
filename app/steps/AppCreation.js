@@ -58,13 +58,22 @@ export class AppCreation extends Component {
 	createApp() {
 		dataOperation.createApp(this.state.appName).done((res) => {
 			if (res.message === 'App Created') {
-				this.setState({
-					readOnly: true
+				dataOperation.getPermission(res.body.id).then((permission) => {
+					this.setState({
+						readOnly: true
+					});
+					res.body.appName = this.state.appName;
+					res.body = Object.assign(res.body, permission);
+					dataOperation.updateApp(res.body);
+					dataOperation.createUrl(this.createUrl);
+					this.props.nextStep();
+				}).catch((e) => {
+					console.log(e);
+					this.errorMsg = 'Some error occured. Please try again!';
+					this.setState({
+						error: true
+					});
 				});
-				res.body.appName = this.state.appName;
-				dataOperation.updateApp(res.body);
-				dataOperation.createUrl(this.createUrl);
-				this.props.nextStep();
 			} else {
 				this.errorMsg = 'Some error occured. Please try again!';
 				this.setState({

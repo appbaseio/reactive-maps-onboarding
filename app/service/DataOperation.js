@@ -12,6 +12,7 @@ class DataOperation {
 			"password": "49e6e356-adff-45b0-b5d0-5f4836d277b1",
 			"type": "test"
 		}
+		this.address = "https://accapi.appbase.io/";
 		$.ajaxSetup({
 			crossDomain: true,
 			xhrFields: {
@@ -23,7 +24,7 @@ class DataOperation {
 	getUser() {
 		return $.ajax({
 			type: "GET",
-			url: 'https://accapi.appbase.io/user',
+			url: this.address+'user',
 			dataType: 'json',
 			contentType: "application/json"
 		});
@@ -31,7 +32,7 @@ class DataOperation {
 	logout() {
 		return $.ajax({
 			type: "GET",
-			url: 'https://accapi.appbase.io/logout?next=',
+			url: this.address+'logout?next=',
 			dataType: 'json',
 			contentType: "application/json"
 		});
@@ -39,9 +40,19 @@ class DataOperation {
 	createApp(appname) {
 		return $.ajax({
 			type: "PUT",
-			url: 'https://accapi.appbase.io/app/' + appname,
+			url: this.address+'app/' + appname,
 			dataType: 'json',
 			contentType: "application/json"
+		});
+	}
+	getPermission(appId) {
+		return new Promise((resolve, reject) => {
+			$.get(`${this.address}app/${appId}/permissions`).done((data) => {
+				const permissions = data.body.filter(permission => permission.read && permission.write);
+				resolve(permissions[0]);
+			}).fail((e) => {
+				reject(e);
+			});
 		});
 	}
 	updateUser(user) {
